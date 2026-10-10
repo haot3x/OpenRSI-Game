@@ -3,7 +3,7 @@
 A public CPU-only research task for improving evidence-based playtesting of
 AI-generated browser games. Built for OpenRSI task creation and proposal review.
 
-**Status: v0.2 review prototype with a fixed 40-action budget; revised full
+**Status: v0.3 review prototype with a fixed 16-action budget; revised full
 validation and proposal acceptance are not claimed at this source revision.**
 
 ## Research question
@@ -18,7 +18,7 @@ The initial executable corpus contains two previously reviewed public **Codex**
 Tetris games and independently checked, task-authored defect variants. Selected
 **Codex and Claude Code** historical report findings motivate the methodology.
 The Claude Code record used MiniMax-M3, not an Anthropic Claude model. No runnable
-Claude Code game is included in v0.2; only two base game implementations are
+Claude Code game is included in v0.3; only two base game implementations are
 represented. These limitations are part of the proposal, not hidden by counting
 seeded variants as additional independently generated games.
 
@@ -29,10 +29,10 @@ call is required. Build downloads pinned public dependencies; runtime is offline
 
 ```sh
 python3 scripts/package_environment.py
-docker build -t openrsi-game:0.2 environment/
+docker build -t openrsi-game:0.3 environment/
 mkdir -p runs
 docker run --rm --network none --cpus 4 --memory 8g \
-  -v "$PWD/runs:/results" openrsi-game:0.2 \
+  -v "$PWD/runs:/results" openrsi-game:0.3 \
   python -m gamebench.evaluate --policy candidate/policy.py --split dev \
   --output /results/dev.json
 ```
@@ -44,7 +44,7 @@ then mount only that candidate directory into the container:
 ```sh
 docker run --rm --network none --cpus 4 --memory 8g \
   -v "$PWD/candidate:/workspace/openrsi-game/candidate:ro" \
-  -v "$PWD/runs:/results" openrsi-game:0.2 \
+  -v "$PWD/runs:/results" openrsi-game:0.3 \
   python -m gamebench.evaluate --policy candidate/policy.py --split dev \
   --output /results/dev.json
 ```
@@ -54,7 +54,7 @@ Run the exact Judge entry point with injected tests:
 ```sh
 docker run --rm --network none --cpus 4 --memory 8g \
   -v "$PWD/tests:/tests:ro" -v "$PWD/runs:/logs/verifier" \
-  openrsi-game:0.2 bash /tests/test.sh
+  openrsi-game:0.3 bash /tests/test.sh
 ```
 
 ## Materials
@@ -69,7 +69,7 @@ docker run --rm --network none --cpus 4 --memory 8g \
 | [Preparation and approval](docs/task-preparation.md) | Delivery state and official workflow |
 | [OpenRSI examples](docs/openrsi-examples.md) | Source requirements and observed review precedents |
 | [Validation](docs/validation.md) | Measured baseline and compatibility checks, when recorded |
-| [Budget revision](docs/budget-revision.md) | Matched 40-action protocol and historical-score separation |
+| [Budget revision](docs/budget-revision.md) | Matched 16-action protocol and historical-score separation |
 
 `task.toml`, `instruction.md`, `environment/`, `solution/` and `tests/test.sh`
 follow the Harbor schema 1.4 / RSI-Harness shared Work/Judge task layout.

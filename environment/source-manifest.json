@@ -1,5 +1,5 @@
 {
-  "archive_sha256": "b111023bb6d6b4400132ff58cd90771fa767ce1206a857947f1fe1e7107f36bc",
+  "archive_sha256": "e8e4bd4dc0bdf07ce21f644ec8d1d1d2531d1d5a8719877bb86e75ee34607ad3",
   "files": [
     {
       "path": "LICENSE",
@@ -11,7 +11,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "7cefd7777fe449e2dbe5579063bc80d022ed7f3fbdda7f8a59f2787008d798f3"
+      "sha256": "523e05fb5584f3523d09d43da7bd8427558578a6c36cc88507e18c109264dc3a"
     },
     {
       "path": "assets/games/a/game.js",
@@ -35,11 +35,11 @@
     },
     {
       "path": "docs/budget-revision.md",
-      "sha256": "1df19ad596f131535a69385c908b176741caa9d69a5cf20b10e33e1e26b1512c"
+      "sha256": "f9836e08bd4604969a649a067e6e7f1b74d1c40d7f9384e996798d4d937d568e"
     },
     {
       "path": "docs/evaluation-contract.md",
-      "sha256": "999f348bd76eb04e1248abb31fcbc32c97664a4d1588796aa8d2166127cd6473"
+      "sha256": "03f2f21d1176c36cc394b71a711e969b2d0475fa2400a5f53ef1f1f97e09e915"
     },
     {
       "path": "docs/methodology.md",
@@ -55,11 +55,11 @@
     },
     {
       "path": "docs/task-preparation.md",
-      "sha256": "dde0377ca195f8913e6bcdb07ec8f506dbf3f64ecb0cc1f6f43869b3aefdab36"
+      "sha256": "332b132098e3a099f2f1466b1a59f01298efb226dc546071b62e34a2242c2bff"
     },
     {
       "path": "docs/validation.md",
-      "sha256": "a76beec37e1f9bfbd20c5ef383446f762b0825ec6d1572c5f0befe1be8f9e857"
+      "sha256": "87659a473a93d3f2eb7fcd01b118eb94aa3bf71083218a17d318e3036fcd2330"
     },
     {
       "path": "gamebench/__init__.py",
@@ -71,7 +71,7 @@
     },
     {
       "path": "gamebench/evaluate.py",
-      "sha256": "20f6e51c1a2533a3fb8a29d6ee59c368609993bf9642389320e9ba9ca39ad0d7"
+      "sha256": "ca8f630f7c0f78b80bb233f07117f0831a87dd2f41a5f7c0d81f605adb2a9842"
     },
     {
       "path": "gamebench/fixtures.py",
@@ -83,7 +83,7 @@
     },
     {
       "path": "instruction.md",
-      "sha256": "ad7ef034d9e17aca09fef57074f1c59237911fbfba7e3c7b4bcc264cc1644d08"
+      "sha256": "74c764fc028153655e7ee76f7b6dbf0cde9867bddf948c3f896bdf3a546cc302"
     },
     {
       "path": "reference/policy.py",
@@ -103,7 +103,7 @@
     },
     {
       "path": "task.toml",
-      "sha256": "0bfe7afc05aaabc65ef2c400591185cab886ade740a55ee7cca8d55e736d0fa3"
+      "sha256": "064784b0eab643b22e38cfb68f8b4fb71695b5a7ae869dba01ff4959c6b39fb9"
     }
   ],
   "candidate": "Exact copy of reference/policy.py"

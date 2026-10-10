@@ -76,14 +76,17 @@ This validation cannot resolve the two-game corpus limitation, public fixture
 exposure, transfer to other genres or need for a future Claude Code game artifact.
 Those remain scientific review considerations.
 
-## 40-action revision
+## Interaction-budget calibrations
 
-Version 0.2 retains the exact same greedy reference, games, fixture seeds,
-evidence rules and balanced scoring, with 40 actions per case for every policy.
-A paired 48-case development exploration measured 0.8125 at 80 actions and
-0.6875 at 40 actions; both had zero unsupported judgments. This exploration
-used the pinned original source with only its action counter/limit adjusted.
-The full revised Judge baseline and validation status are not yet measured
-at this source-package revision. The 0.875 historical result must not be used
-as the matched 40-action baseline. See [the revision](budget-revision.md) and
-the public repository's submission record for subsequent validation results.
+The reference, games, fixture seeds, evidence rules and balanced scoring remain
+unchanged. Development exploration measured 0.8125 at 80 actions, 0.6875 at
+40, 32 and 24 actions, and 0.50 at 16 actions, across the same 48 cases.
+All had zero unsupported judgments. A full 40-action generated-Task calibration
+measured **0.8125** over 96 cases in 12.579 seconds, leaving only 18.75 percentage
+points of headroom and failing the 20-point gate. It is retained as a rejected
+protocol, not hidden or relabeled as an Agent improvement.
+
+Version 0.3 now fixes 16 actions for every policy. Its complete revised Judge
+measurement is pending at this source-package revision. Historical 80- and
+40-action results are not its matched baseline. See [the revision](budget-revision.md)
+and the public repository's submission record for subsequent validation results.

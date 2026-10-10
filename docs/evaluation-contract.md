@@ -61,7 +61,7 @@ or paid model calls are permitted. No candidate model inference is required.
 
 ## Budget and lifecycle
 
-Each case permits 40 actions and 30 wall seconds. A key press advances 32
+Each case permits 16 actions and 30 wall seconds. A key press advances 32
 simulated ms; a wait is 16–2000 simulated ms. The clock advances rAF callbacks
 in steps ≤16 ms; it is fixed by the evaluator, not candidate-controlled beyond
 bounded waiting. Allowed keys are Enter, ArrowLeft/Right/Down/Up and Space.
