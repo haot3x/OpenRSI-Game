@@ -39,3 +39,18 @@ The measurements use the generated Task's hardened injected Judge wrapper,
 not a newly claimed run of the public source's legacy wrapper. No research
 Agent or paid inference ran. Revised proposal review, a completed experiment
 trajectory, independent reproduction and final inclusion remain separate.
+
+## Revised proposal passed initial review
+
+At **2026-10-10 15:15:36 UTC**, the revised 16-action proposal received
+[**PASS**](https://github.com/OpenRSI-Foundation/OpenRSI-Index/discussions/209#discussioncomment-18852309).
+All nine hard gates passed and the quality review was completed. Public creator
+attribution on AI Game Bench and the pinned [named contributor record](https://github.com/haot3x/OpenRSI-Game/blob/ed3316b463a477d9a231c1bf41a9a81dac841dc9/CONTRIBUTOR.md)
+resolved the preceding identity-verification gap.
+
+The Foundation posted an [automatic task queue notice](https://github.com/OpenRSI-Foundation/OpenRSI-Index/discussions/209#discussioncomment-18852330).
+The [review workflow](https://github.com/OpenRSI-Foundation/OpenRSI-Index/actions/runs/38062675688)
+completed successfully. This is initial proposal approval; a completed research
+experiment, independent task reproduction and final Index inclusion are later
+stages. The frozen execution source and locally validated protocol remain the
+same.
