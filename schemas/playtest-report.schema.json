@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/haot3x/OpenRSI-Game/main/schemas/playtest-report.schema.json",
+  "title": "Draft game playtest report",
+  "description": "Proposed report structure for task review. Structural validity does not establish evidence integrity or semantic correctness. This is not a frozen evaluation contract.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "case_id", "evaluation_status", "claims"],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0-draft"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque case identifier from the task manifest."
+    },
+    "evaluation_status": {
+      "enum": ["complete", "incomplete", "infrastructure_failure"]
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["requirement_id", "status", "evidence_ids"],
+        "properties": {
+          "requirement_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": ["passed", "failed", "unverified"]
+          },
+          "evidence_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "References to observations owned by the browser recorder. Their existence and meaning require independent validation."
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "A complete report must cover every task requirement exactly once. That constraint requires the task manifest and is not enforced by this schema alone."
+    }
+  }
+}
