@@ -1,36 +1,90 @@
 # OpenRSI-Game
 
-Public methodology and preparation materials for an OpenRSI game-evaluation task. This repository is intended for task creation and proposal review.
+A public CPU-only research task for improving evidence-based playtesting of
+AI-generated browser games. Built for OpenRSI task creation and proposal review.
 
-**Status: draft for review.** The repository currently contains documents and a proposed report schema. It does not yet contain an executable benchmark, a frozen game corpus, reference labels or a runnable baseline.
+**Status: runnable v0.1 review prototype; OpenRSI acceptance is not claimed.**
 
-## Research direction
+## Research question
 
-Can a research agent improve browser exploration and evidence assessment so that a playtester verifies more game requirements correctly under a fixed interaction and inference budget?
+Can better visual state estimation, placement planning and evidence assessment
+improve functional judgments under a fixed browser-interaction budget?
+A research agent changes a playtesting policy, measures it against a fixed
+baseline, observes feedback and revises its hypothesis. The optimized scalar is
+balanced evidence-supported correct-decision rate, not a platform ranking.
 
-The proposed game creation scope is limited to **Codex and Claude**. The research target is the evaluation method: action planning, reaching relevant game states and deciding whether observations support a requirement. Exact tool and model identities must be fixed before selecting the corpus; a tool name alone does not identify its underlying model.
+The initial executable corpus contains two previously reviewed public **Codex**
+Tetris games and independently checked, task-authored defect variants. Selected
+**Codex and Claude Code** historical report findings motivate the methodology.
+The Claude Code record used MiniMax-M3, not an Anthropic Claude model. No runnable
+Claude Code game is included in v0.1; only two base game implementations are
+represented. These limitations are part of the proposal, not hidden by counting
+seeded variants as additional independently generated games.
 
-[AI Game Bench](https://aigamebench.com/) provides the contributor's domain background. Its [public methodology](https://www.aigamebench.com/methodology) emphasizes real outcomes, fair comparison and transparent evidence. This repository develops that motivation into a proposed, auditable research task.
+## Run locally
 
-## Review materials
+Docker runs the browser inside one ordinary container. No API key or paid model
+call is required. Build downloads pinned public dependencies; runtime is offline.
+
+```sh
+python3 scripts/package_environment.py
+docker build -t openrsi-game:0.1 environment/
+mkdir -p runs
+docker run --rm --network none --cpus 4 --memory 8g \
+  -v "$PWD/runs:/results" openrsi-game:0.1 \
+  python -m gamebench.evaluate --policy candidate/policy.py --split dev \
+  --output /results/dev.json
+```
+
+The image initializes the candidate to the fixed reference policy. To iterate
+on your local candidate, copy the reference once with `bash solution/solve.sh`,
+then mount only that candidate directory into the container:
+
+```sh
+docker run --rm --network none --cpus 4 --memory 8g \
+  -v "$PWD/candidate:/workspace/openrsi-game/candidate:ro" \
+  -v "$PWD/runs:/results" openrsi-game:0.1 \
+  python -m gamebench.evaluate --policy candidate/policy.py --split dev \
+  --output /results/dev.json
+```
+
+Run the exact Judge entry point with injected tests:
+
+```sh
+docker run --rm --network none --cpus 4 --memory 8g \
+  -v "$PWD/tests:/tests:ro" -v "$PWD/runs:/logs/verifier" \
+  openrsi-game:0.1 bash /tests/test.sh
+```
+
+## Materials
 
 | Material | Purpose |
 | --- | --- |
-| [Task concept](docs/task-concept.md) | Scientific question, research loop, baseline and evaluation design |
-| [Methodology](docs/methodology.md) | Evidence requirements, judgment states and comparison conditions |
-| [Task preparation](docs/task-preparation.md) | Concrete steps to complete code, assets, baseline and scoring |
-| [OpenRSI discussion examples](docs/openrsi-examples.md) | Source-repository requirements and observed review precedents |
-| [Proposed report schema](schemas/playtest-report.schema.json) | Draft structure for candidate reports; not an evaluator |
+| [Task instructions](instruction.md) | Candidate API, research loop and allowed changes |
+| [Evaluation contract](docs/evaluation-contract.md) | Fixed workload, metric, evidence, budgets and limitations |
+| [Selected reports](reports/README.md) | Authorized Codex/Claude Code outcomes and caveats |
+| [Asset manifest](assets/manifest.json) | Frozen files, digests and model provenance |
+| [Methodology](docs/methodology.md) | Evidence and judgment principles |
+| [Preparation and approval](docs/task-preparation.md) | Delivery state and official workflow |
+| [OpenRSI examples](docs/openrsi-examples.md) | Source requirements and observed review precedents |
+| [Validation](docs/validation.md) | Measured baseline and compatibility checks, when recorded |
 
-## Contributor
+`task.toml`, `instruction.md`, `environment/`, `solution/` and `tests/test.sh`
+follow the Harbor schema 1.4 / RSI-Harness shared Work/Judge task layout.
+Judge receives its own injected evaluator copies and pinned asset manifest;
+Work's public evaluator is for development. No independent clean Base or
+malicious-code isolation is claimed. See the contract for residual limits.
 
-**Haotian Xu**, creator of AI Game Bench.
+## Contributor and publication
 
-- Publication email: ht@mopan.ai
-- Professional profile: [LinkedIn](https://www.linkedin.com/in/xuhaotian/)
+**Haotian Xu**, creator of [AI Game Bench](https://aigamebench.com/).
+Publication email: ht@mopan.ai. [LinkedIn](https://www.linkedin.com/in/xuhaotian/).
 
-## Publication scope
+Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). This repository publishes
+independently prepared task code, approved game-only artifacts and selected
+report findings. It excludes raw runs, creator conversations, credentials,
+account data, internal services and company implementation details.
 
-Publish only independently prepared methodology, reviewed examples and task-specific materials suitable for public use. Keep credentials, account information, internal services, creator conversations, raw historical runs and private project files outside this repository.
-
-These materials have not been submitted as an OpenRSI Discussion and no approval or task-generation result is claimed. The full scientific contract, usable source and asset delivery must be established before the final proposal is submitted through [the contribution workflow](https://github.com/OpenRSI-Foundation/OpenRSI-Index/blob/main/CONTRIBUTING.md).
+Task submission follows [OpenRSI CONTRIBUTING.md](https://github.com/OpenRSI-Foundation/OpenRSI-Index/blob/main/CONTRIBUTING.md).
+Proposal approval, successful task generation and final benchmark inclusion are
+separate stages. A small runnable prototype does not guarantee inclusion.

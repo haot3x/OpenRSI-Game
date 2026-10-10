@@ -1,0 +1,22 @@
+{
+  "status": "scored",
+  "score": 0.8125,
+  "eligible_judgments": 80,
+  "class_counts": {
+    "passed": 48,
+    "failed": 32
+  },
+  "correct_counts": {
+    "passed": 39,
+    "failed": 26
+  },
+  "abstentions": 15,
+  "unsupported_decisions": 0,
+  "split": "dev",
+  "cases": 48,
+  "actions": 1383,
+  "elapsed_seconds": 9.039,
+  "browser_version": "151.0.7922.34",
+  "policy_sha256": "4c40a0f2ccc2605493fb37be29f4d807218a4cd64e359a311cf199488ac6a493",
+  "official_full_run": false
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "game-assets/1.0",
+  "scope": "Two previously reviewed public Codex artifacts; no Claude Code game artifact in v0.1.",
+  "source": "https://aigamebench.com/",
+  "report": "Report 002, 2026-09-23",
+  "rights": "Published by the contributor under Apache-2.0; game-only copies authorized for this task.",
+  "games": [
+    {
+      "family": "a",
+      "creation_tool": "Codex CLI",
+      "cli_version": "0.155.1",
+      "model": "gpt-6-astra",
+      "effort": "medium",
+      "changes": "Removed the public website iframe-height bridge reference; mechanics unchanged. English display text inherited from the reviewed public copy.",
+      "files": [
+        {
+          "path": "assets/games/a/index.html",
+          "source_public_sha256": "a349b27bf0a81424beacd7cb351015fd2300923dbe0c4fc0da506e71c17dcff4",
+          "sha256": "a47fe01e4b503a982f0023bb076e7b66532c9eaf9c8bf6632a7bd7c6c9dc6aba"
+        },
+        {
+          "path": "assets/games/a/style.css",
+          "source_public_sha256": "7816e82ad8427295b801faa60e3f6b57333c66c1519e06b15d91ef9b3a3a6739",
+          "sha256": "7816e82ad8427295b801faa60e3f6b57333c66c1519e06b15d91ef9b3a3a6739"
+        },
+        {
+          "path": "assets/games/a/game.js",
+          "source_public_sha256": "3f9c757b9e8f3db4746927bb8811b17aba70f3109304f43e1c51b80d872f83b0",
+          "sha256": "3f9c757b9e8f3db4746927bb8811b17aba70f3109304f43e1c51b80d872f83b0"
+        }
+      ]
+    },
+    {
+      "family": "b",
+      "creation_tool": "Codex CLI",
+      "cli_version": "0.155.1",
+      "model": "gpt-6-sol",
+      "effort": "medium",
+      "changes": "Removed the public website iframe-height bridge reference; mechanics unchanged. English display text inherited from the reviewed public copy.",
+      "files": [
+        {
+          "path": "assets/games/b/index.html",
+          "source_public_sha256": "d350145d930933b8db3795be3fa72116fbaf9e7eb56a7fa546e5a52240d13cc4",
+          "sha256": "06ae892ceeb7e6c52fb164dac0a423e9c8ecf8bc63d2f6fc69b10221e8e09a8b"
+        }
+      ]
+    }
+  ]
+}

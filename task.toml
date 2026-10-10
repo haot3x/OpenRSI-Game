@@ -1,0 +1,38 @@
+schema_version = "1.4"
+
+[task]
+name = "rsi/game-playtest-evidence"
+version = "0.1.0"
+description = "Improve a visual game-playtesting policy under fixed browser and evidence budgets."
+
+[metadata]
+author_name = "Haotian Xu"
+author_email = "ht@mopan.ai"
+category = "ML"
+subcategory = "Evaluation"
+tags = ["autoresearch", "game-evaluation", "browser-agent", "evidence"]
+expert_time_estimate_hours = 8
+difficulty_explanation = "A playtester must plan placements to reach line-clear events, distinguish drop points from clear rewards, and support both positive and negative decisions."
+verification_explanation = "Task-owned browser instrumentation certifies completed-row events; balanced correctness requires matching frame evidence."
+
+[metadata.rsi_harness.verifier]
+gpus = 0
+
+[environment]
+os = "linux"
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+build_timeout_sec = 1800
+workdir = "/workspace/openrsi-game"
+gpus = 0
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 86400
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 900
+network_mode = "no-network"
+environment_mode = "shared"

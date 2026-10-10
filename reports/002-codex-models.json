@@ -1,0 +1,234 @@
+{
+  "schema_version": "selected-report/1.0",
+  "source_report": "Report 002",
+  "date": "2026-09-23",
+  "task": {
+    "prompt": "A classic Tetris game",
+    "creation_attempts_per_model": 1,
+    "creation_cli_version": "0.155.1",
+    "effort": "medium",
+    "repair_prompts": 0
+  },
+  "independent_evaluation": {
+    "protocol": "playtest-v0.2-local-fallback",
+    "evaluator_model": "gpt-6-astra",
+    "evaluator_effort": "medium",
+    "evaluator_cli_version": "0.153.4",
+    "browser": "Chromium 151.0.7922.34",
+    "viewport": [
+      1280,
+      720
+    ],
+    "max_actions": 60,
+    "max_seconds": 300,
+    "attempts_per_game": 1,
+    "automatic_retries": 0,
+    "claim_kind": "independent evaluator claims, not calibrated ground truth"
+  },
+  "ranking": false,
+  "total_100_score": null,
+  "limitations": [
+    "One creation and one independent evaluation per model; not a capability ranking.",
+    "Unverified is not failed. Separate controlled QA does not alter the historical evaluator claims.",
+    "Actual charges and subjective experience ratings are absent.",
+    "The browser/task protocol differs from Report 001; their totals are not directly comparable."
+  ],
+  "records": [
+    {
+      "tool": "Codex CLI",
+      "cli_version": "0.155.1",
+      "model": "gpt-6-astra",
+      "effort": "medium",
+      "creation_seconds": 210.110764,
+      "evaluation": {
+        "actions_recorded": 60,
+        "agent_seconds": 184.588657,
+        "claim_counts": {
+          "passed": 9,
+          "failed": 0,
+          "unverified": 0
+        },
+        "core_points_out_of_40": 40
+      },
+      "checks": [
+        {
+          "id": "opens",
+          "title": "Open and start the game",
+          "weight": 4,
+          "status": "passed",
+          "weighted_points": 4,
+          "observation_summary": "After pressing Enter on the start screen, a 10\u00d720 board, active piece, and score of 0 appeared."
+        },
+        {
+          "id": "gravity_next",
+          "title": "Automatic descent and new piece",
+          "weight": 5,
+          "status": "passed",
+          "weighted_points": 5,
+          "observation_summary": "Without a down input, the piece kept falling, locked, and a new piece spawned."
+        },
+        {
+          "id": "move_bounds",
+          "title": "Horizontal movement and bounds",
+          "weight": 5,
+          "status": "passed",
+          "weighted_points": 5,
+          "observation_summary": "Left and right keys moved the piece; further presses at both edges kept it on the board."
+        },
+        {
+          "id": "rotate",
+          "title": "Rotation",
+          "weight": 4,
+          "status": "passed",
+          "weighted_points": 4,
+          "observation_summary": "The asymmetric Z piece changed orientation after ArrowUp and returned after a second press."
+        },
+        {
+          "id": "stack",
+          "title": "Locking and stacking",
+          "weight": 5,
+          "status": "passed",
+          "weighted_points": 5,
+          "observation_summary": "Hard drop landed and locked the piece; later pieces stacked on existing pieces."
+        },
+        {
+          "id": "line_clear",
+          "title": "Line clearing",
+          "weight": 7,
+          "status": "passed",
+          "weighted_points": 7,
+          "observation_summary": "A row was completed in the independent natural run; in the next frame it disappeared and the pieces above moved down."
+        },
+        {
+          "id": "score_on_clear",
+          "title": "Scoring after a line clear",
+          "weight": 4,
+          "status": "passed",
+          "weighted_points": 4,
+          "observation_summary": "In the same natural run, the score rose from 252 to 352 across a line clear; there was only waiting, with no hard-drop input."
+        },
+        {
+          "id": "top_out",
+          "title": "Game over when the stack reaches the top",
+          "weight": 3,
+          "status": "passed",
+          "weighted_points": 3,
+          "observation_summary": "After repeated hard drops filled the spawn area, a game-over screen showed 450 points and 1 line."
+        },
+        {
+          "id": "restart",
+          "title": "Restart and reset",
+          "weight": 3,
+          "status": "passed",
+          "weighted_points": 3,
+          "observation_summary": "After restarting from game over, the board cleared, score and lines reset to zero, and play continued."
+        }
+      ],
+      "controlled_qa": {
+        "line_clear_observed": true,
+        "score_before": 72,
+        "score_after": 208,
+        "setup": "First three pieces I, J, L controlled before load; normal game input thereafter.",
+        "separate_from_independent_evaluation": true
+      }
+    },
+    {
+      "tool": "Codex CLI",
+      "cli_version": "0.155.1",
+      "model": "gpt-6-sol",
+      "effort": "medium",
+      "creation_seconds": 185.028946,
+      "evaluation": {
+        "actions_recorded": 38,
+        "agent_seconds": 135.078009,
+        "claim_counts": {
+          "unverified": 2,
+          "passed": 7,
+          "failed": 0
+        },
+        "core_points_out_of_40": 29
+      },
+      "checks": [
+        {
+          "id": "opens",
+          "title": "Open and start the game",
+          "weight": 4,
+          "status": "passed",
+          "weighted_points": 4,
+          "observation_summary": "After clicking Start, the overlay disappeared and the active piece and game controls appeared."
+        },
+        {
+          "id": "gravity_next",
+          "title": "Automatic descent and new piece",
+          "weight": 5,
+          "status": "passed",
+          "weighted_points": 5,
+          "observation_summary": "Without a down input, the piece fell, locked, and the next piece spawned."
+        },
+        {
+          "id": "move_bounds",
+          "title": "Horizontal movement and bounds",
+          "weight": 5,
+          "status": "passed",
+          "weighted_points": 5,
+          "observation_summary": "Left and right keys moved the piece; further presses at either boundary kept it on the board."
+        },
+        {
+          "id": "rotate",
+          "title": "Rotation",
+          "weight": 4,
+          "status": "passed",
+          "weighted_points": 4,
+          "observation_summary": "The J piece visibly changed orientation after x or ArrowUp."
+        },
+        {
+          "id": "stack",
+          "title": "Locking and stacking",
+          "weight": 5,
+          "status": "passed",
+          "weighted_points": 5,
+          "observation_summary": "Repeated hard drops landed on locked pieces without passing through the stack."
+        },
+        {
+          "id": "line_clear",
+          "title": "Line clearing",
+          "weight": 7,
+          "status": "unverified",
+          "weighted_points": 0,
+          "observation_summary": "The randomized run did not complete a row; the initial 1280\u00d7720 viewport also cut off the bottom of the board, so this run could not prove line clearing."
+        },
+        {
+          "id": "score_on_clear",
+          "title": "Scoring after a line clear",
+          "weight": 4,
+          "status": "unverified",
+          "weighted_points": 0,
+          "observation_summary": "No line clear occurred in this run. Observed points came from hard drops and cannot prove scoring after a clear."
+        },
+        {
+          "id": "top_out",
+          "title": "Game over when the stack reaches the top",
+          "weight": 3,
+          "status": "passed",
+          "weighted_points": 3,
+          "observation_summary": "After stacking to the top, a game-over screen showed 216 points."
+        },
+        {
+          "id": "restart",
+          "title": "Restart and reset",
+          "weight": 3,
+          "status": "passed",
+          "weighted_points": 3,
+          "observation_summary": "After restarting from game over, the old stack disappeared, the score reset to zero, and pieces kept falling and moving."
+        }
+      ],
+      "controlled_qa": {
+        "line_clear_observed": true,
+        "score_before": 76,
+        "score_after": 214,
+        "setup": "First three pieces I, J, L controlled before load; normal game input thereafter.",
+        "separate_from_independent_evaluation": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "schema_version": "selected-report/1.0",
+  "source_report": "Report 001",
+  "date": "2026-09-22",
+  "scope": "Codex and Claude Code only",
+  "ranking": false,
+  "actual_creation_charge_known": false,
+  "limitations": [
+    "One creation per tool, retrospective platform-aware assessment; not calibrated ground truth.",
+    "Provisional totals use only 80/100 available scoring weight; creator charges are unknown.",
+    "Initial browser state was operator-prepared rather than frozen.",
+    "Claude Code used MiniMax-M3. This is not an Anthropic Claude model result.",
+    "Report 003 repeats these selected records; it is not an independent replication."
+  ],
+  "records": [
+    {
+      "tool": "Codex CLI",
+      "identity": {
+        "cli_version": "0.155.1",
+        "model": "gpt-6-astra",
+        "effort": "low"
+      },
+      "creation_seconds": 240.269,
+      "evaluation": {
+        "claim_kind": "evaluator_claims_not_calibrated",
+        "agent": "codex",
+        "agent_version": "0.153.4",
+        "model": "gpt-6-astra",
+        "effort": "medium",
+        "actions_recorded": 45,
+        "evidence_events_referenced": 31,
+        "counts": {
+          "failed": 0,
+          "passed": 9,
+          "unverified": 0
+        }
+      },
+      "browser": {
+        "observation_mode": "screenshots_only",
+        "observation_protocol_version": "profile-visual/0.3.0",
+        "viewport": [
+          1280,
+          720
+        ],
+        "initial_state": "operator_prepared_not_frozen",
+        "browser_version": "Chrome/153.0.8010.52",
+        "viewport_scroll": [
+          0,
+          280
+        ]
+      },
+      "provisional_score": 91.83146527777777,
+      "scored_weight_out_of_100": 80,
+      "checks": [
+        {
+          "id": "opens",
+          "status": "passed",
+          "note": "Clicking the visible start button opened an active 10\u00d720 board; subsequent keyboard inputs controlled its falling pieces."
+        },
+        {
+          "id": "gravity_next",
+          "status": "passed",
+          "note": "The orange L descended during the 1100 ms wait with no falling input. It later remained locked on the floor while a new red Z was active. The later 5000 ms wait also showed an L landing and a new T appearing."
+        },
+        {
+          "id": "move_bounds",
+          "status": "passed",
+          "note": "Left and right presses moved the active piece horizontally. Repeated left presses reached the leftmost column and further presses kept it inside. Repeated right presses reached the rightmost column, and another right press did not cross the edge."
+        },
+        {
+          "id": "rotate",
+          "status": "passed",
+          "note": "ArrowUp changed the orange non-square L from a horizontal three-cell base with an upper end cell to a vertical three-cell column with a lower side cell."
+        },
+        {
+          "id": "stack",
+          "status": "passed",
+          "note": "The orange L locked at the floor. A cyan I then landed horizontally on that existing L, and a purple T subsequently locked on the cyan I; the earlier blocks remained in place."
+        },
+        {
+          "id": "line_clear",
+          "status": "passed",
+          "note": "In the restarted game, the bottom row had cyan cells in columns 1\u20134 and blue cells in columns 5\u20137. Four right presses aligned the orange L base with the remaining columns 8\u201310. During the subsequent no-input wait it landed, the prior bottom row disappeared, and the surviving green, blue and orange cells shifted down one row. The line counter changed from 00 to 01."
+        },
+        {
+          "id": "line_clear_score",
+          "status": "passed",
+          "note": "The same gravity-only line-clear event increased the visible score from 00062 to 00162. No soft-drop or hard-drop input occurred during this event, and the screenshots show the row removal as well as the score increase."
+        },
+        {
+          "id": "top_out",
+          "status": "passed",
+          "note": "Repeated normal Space drops built a central stack toward the spawn area. After the remaining pieces fell at the top, the board displayed Game Over, a final score of 126, and the replay button."
+        },
+        {
+          "id": "restart_reset",
+          "status": "passed",
+          "note": "Clicking the in-game replay button from game over with the old stack and score 00126 cleared all locked blocks, reset the current score to 00000, and spawned a new cyan I. Subsequent left movement and a drop confirmed the new game was playable."
+        }
+      ]
+    },
+    {
+      "tool": "Claude Code",
+      "identity": {
+        "cli_version": "2.1.220",
+        "model": "MiniMax-M3",
+        "effort": null
+      },
+      "creation_seconds": 197.811,
+      "evaluation": {
+        "claim_kind": "evaluator_claims_not_calibrated",
+        "agent": "codex",
+        "agent_version": "0.153.4",
+        "model": "gpt-6-astra",
+        "effort": "medium",
+        "actions_recorded": 64,
+        "evidence_events_referenced": 39,
+        "counts": {
+          "passed": 9,
+          "unverified": 0,
+          "failed": 0
+        }
+      },
+      "browser": {
+        "observation_mode": "screenshots_only",
+        "observation_protocol_version": "profile-visual/0.3.0",
+        "viewport": [
+          1280,
+          720
+        ],
+        "initial_state": "operator_prepared_not_frozen",
+        "browser_version": "Chrome/153.0.8010.52",
+        "viewport_scroll": null
+      },
+      "provisional_score": 92.62631250000001,
+      "scored_weight_out_of_100": 80,
+      "checks": [
+        {
+          "id": "opens",
+          "status": "passed",
+          "note": "The initial crop showed an existing game-over state. Clicking the in-game restart button opened an empty playable board with an active tetromino; subsequent keyboard inputs operated it."
+        },
+        {
+          "id": "gravity_next",
+          "status": "passed",
+          "note": "During the 1500 ms no-input wait the red piece descended two rows. It later remained settled on the floor while a new green piece appeared and fell. The final 5000 ms no-input wait also showed the orange piece settling and a new blue piece appearing."
+        },
+        {
+          "id": "move_bounds",
+          "status": "passed",
+          "note": "Left inputs moved pieces left; e0008 reached the left wall, and further left inputs e0009-e0010 left the piece inside the wall. Right inputs moved the blue piece right; e0014 reached the right wall, and further right inputs e0015-e0019 did not move it beyond that wall."
+        },
+        {
+          "id": "rotate",
+          "status": "passed",
+          "note": "ArrowUp changed the non-square red zigzag from a horizontal two-row shape to a vertical three-row shape. Later rotations also visibly changed T and L orientations."
+        },
+        {
+          "id": "stack",
+          "status": "passed",
+          "note": "The red piece settled on the floor and remained there as later pieces appeared. Space placed the purple T above existing red blocks; the following orange piece settled above the purple piece, preserving the earlier stack."
+        },
+        {
+          "id": "line_clear",
+          "status": "passed",
+          "note": "In the game begun at e0030, placements built the third row from the bottom across columns 1-7. The rotated orange L was moved over the remaining three rightmost cells. During e0063's no-input wait it descended into that gap: the purple/green/yellow row disappeared, the purple block and orange block above it moved down one row, and a new blue piece appeared. The visible board transformation supports the clear in addition to the line counter changing 0 to 1."
+        },
+        {
+          "id": "line_clear_score",
+          "status": "passed",
+          "note": "The same line-clear event in e0063 increased the visible score from 118 to 218 and lines from 0 to 1. The completing action was a 5000 ms wait with no key input, so this increase was not soft-drop or hard-drop scoring."
+        },
+        {
+          "id": "top_out",
+          "status": "passed",
+          "note": "Normal Space inputs stacked successive pieces toward the top. e0024 showed the stack reaching the spawn area; the next Space input e0025 produced the explicit game-over overlay with score 68."
+        },
+        {
+          "id": "restart_reset",
+          "status": "passed",
+          "note": "From the game-over board with the old stack and score 68, pressing the in-game R control cleared the settled blocks, reset the current score to 0, and spawned a new red piece. Subsequent left inputs moved that piece and Space settled it in the new game. The separate high-score display retained 68."
+        }
+      ]
+    }
+  ]
+}
