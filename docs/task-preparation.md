@@ -7,15 +7,15 @@
 - Public assets: four approved game-only files and file digests in `assets/`.
 - Baseline: human-authored greedy non-rotating policy in `reference/policy.py`;
   Solution materializes it by copying, without training or evaluation.
-- Scoring: [fixed v0.1 contract](evaluation-contract.md), 48 development cases,
-  96 full evaluation cases, two behavioral requirements, 80 actions per case.
+- Scoring: [fixed v0.2 contract](evaluation-contract.md), 48 development cases,
+  96 full evaluation cases, two behavioral requirements, 40 actions per case.
 - Harness package: schema 1.4 task, ordinary Docker environment, shared
   Work/Judge, zero GPUs and Judge-only injected tests. The deterministic source
   archive supports the standard environment-only Docker build context.
 - Selected reports: Codex and Claude Code [publication extracts](../reports/README.md).
 - Measured execution and format results are recorded in [validation.md](validation.md).
 
-There is no runnable Claude Code game in v0.1. New model calls and broader game
+There is no runnable Claude Code game in v0.2. New model calls and broader game
 collection are not part of this submission. Counting controlled variants as
 independently generated games would misrepresent corpus size.
 

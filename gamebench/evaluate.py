@@ -14,6 +14,8 @@ from .browser import Game
 from .fixtures import cases, labels, verify_assets
 from .scoring import aggregate, decisions, validate_report
 
+ACTION_BUDGET = 40
+
 
 class CandidateError(Exception):
     pass
@@ -51,10 +53,10 @@ def run_case(browser, policy, case, image=False):
 
     try:
         observation = game.observe(image)
-        for step in range(81):
+        for step in range(ACTION_BUDGET + 1):
             try:
                 payload = (json.dumps({"observation": observation,
-                    "remaining_actions": 80 - step, "requirements": ["line_clear", "score_on_clear"]}) + "\n").encode()
+                    "remaining_actions": ACTION_BUDGET - step, "requirements": ["line_clear", "score_on_clear"]}) + "\n").encode()
                 while payload:
                     remaining = deadline - time.monotonic()
                     if remaining <= 0 or not select.select([], [process.stdin], [], remaining)[1]:
@@ -75,7 +77,7 @@ def run_case(browser, policy, case, image=False):
                 except ValueError as error:
                     raise CandidateError(str(error)) from error
                 return decisions(message["final"], labels(case[1]), game.certificates), step
-            if "action" not in message or step == 80:
+            if "action" not in message or step == ACTION_BUDGET:
                 raise CandidateError("Missing final report or action budget exceeded")
             try:
                 observation = game.act(message["action"])
@@ -113,6 +115,7 @@ def evaluate(policy, split, image=False, limit=None):
                 print(f"Completed {i + 1}/{len(selected)} cases", file=sys.stderr, flush=True)
             result = aggregate(rows)
             result.update({"split": split, "cases": len(selected), "actions": actions,
+                           "action_budget": ACTION_BUDGET,
                            "elapsed_seconds": round(time.monotonic() - begin, 3),
                            "browser_version": browser.version,
                            "policy_sha256": hashlib.sha256(policy.read_bytes()).hexdigest(),

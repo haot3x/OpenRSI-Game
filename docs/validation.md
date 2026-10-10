@@ -6,7 +6,7 @@ reproduction or an official research-agent run. Containers used Linux/arm64,
 The pinned Playwright 1.62.0 image reported Chromium 151.0.7922.34.
 Memory consumption was not separately profiled; 8 GiB is the imposed limit.
 
-## Baseline reproduction
+## Historical 80-action baseline reproduction
 
 The reference is the human-authored greedy, non-rotating visual policy in
 `reference/policy.py`, SHA-256
@@ -75,3 +75,15 @@ was much faster locally; new policies may take longer and are still budgeted.
 This validation cannot resolve the two-game corpus limitation, public fixture
 exposure, transfer to other genres or need for a future Claude Code game artifact.
 Those remain scientific review considerations.
+
+## 40-action revision
+
+Version 0.2 retains the exact same greedy reference, games, fixture seeds,
+evidence rules and balanced scoring, with 40 actions per case for every policy.
+A paired 48-case development exploration measured 0.8125 at 80 actions and
+0.6875 at 40 actions; both had zero unsupported judgments. This exploration
+used the pinned original source with only its action counter/limit adjusted.
+The full revised Judge baseline and validation status are not yet measured
+at this source-package revision. The 0.875 historical result must not be used
+as the matched 40-action baseline. See [the revision](budget-revision.md) and
+the public repository's submission record for subsequent validation results.

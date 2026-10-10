@@ -28,7 +28,7 @@ visible `score`, `lines`, and overlay text/visibility. Optional board PNGs can b
 enabled with `--images`; they depict the same board. No JavaScript game state,
 source, creator identity, seed, variant, or oracle event is delivered to a policy.
 Allowed keys: Enter, ArrowLeft, ArrowRight, ArrowDown, ArrowUp, Space. There are
-80 actions and 30 wall seconds per case. A key advances 32 simulated ms; a wait
+40 actions and 30 wall seconds per case. A key advances 32 simulated ms; a wait
 advances 16–2000 simulated ms. Restarts and repeated inputs consume that budget.
 
 Both requirements use `passed`, `failed`, or `unverified`. A positive or negative
@@ -57,7 +57,9 @@ is allowed. Locally generated development observations within the fixed task
 are allowed. A malformed candidate, crash, timeout, infrastructure failure or
 incomplete evaluation is unscored, rather than a game defect or finite zero.
 
-This public v0.1 is a proposal/review prototype. Only two game implementations
+This public v0.2 is a proposal/review prototype. The 40-action protocol retains
+the original greedy reference unchanged; old 80-action scores are historical
+comparisons, not its matched baseline. Only two game implementations
 are represented. Public seeds, variants and probe source are exposed for audit;
 this is not a secret or contamination-free held-out corpus, or a general model
 ranking. RSI-Harness uses the shared Work/Judge snapshot and Judge-only tests;
