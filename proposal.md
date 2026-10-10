@@ -7,7 +7,7 @@ maintainer acceptance, independent reproduction or an Agent trajectory.
 
 | Section | Field | Proposal |
 | --- | --- | --- |
-| Contributor | Full name | Haotian Xu, creator of [AI Game Bench](https://www.aigamebench.com/). Public authorship checked on 2026-10-10: both the project [homepage](https://www.aigamebench.com/) and [methodology page](https://www.aigamebench.com/methodology) display “created by Haotian Xu” in their footer and link to [GitHub @haot3x](https://github.com/haot3x), the account owning the [contribution repository](https://github.com/haot3x/OpenRSI-Game) and authoring this Discussion. The public methodology discusses evaluating AI in games, interaction, real outcomes, fair comparison and transparent evidence, connecting the named creator to this task's game-evaluation focus. These project-page attribution links are the primary identity evidence. |
+| Contributor | Full name | Haotian Xu, creator of [AI Game Bench](https://www.aigamebench.com/). The [public named-contributor page](https://github.com/haot3x/OpenRSI-Game/blob/ed3316b463a477d9a231c1bf41a9a81dac841dc9/CONTRIBUTOR.md) ([direct text](https://raw.githubusercontent.com/haot3x/OpenRSI-Game/ed3316b463a477d9a231c1bf41a9a81dac841dc9/CONTRIBUTOR.md)) records the full name, project role and GitHub account haot3x, whose display name is HT. A [dated public-page capture](https://raw.githubusercontent.com/haot3x/OpenRSI-Game/ed3316b463a477d9a231c1bf41a9a81dac841dc9/publication/contributor-attribution-20261010.json) preserves the actual HTTP-200 HTML footers of the project [homepage](https://www.aigamebench.com/) and [methodology page](https://www.aigamebench.com/methodology), fetched without login on 2026-10-10 at 15:10 UTC: both display “created by Haotian Xu” and link to [GitHub @haot3x](https://github.com/haot3x), the owner of this contribution repository and author of this Discussion. The public methodology discusses AI evaluation in games, interaction, real outcomes, fair comparison and transparent evidence. The named page links the public task contract, reference and evaluator as task-relevant work. Attribution records are separate pinned publication metadata; contributor-side captures are not independent Foundation verification. |
 | Contributor | Email | ht@mopan.ai |
 | Research Question | Repository URL | https://github.com/haot3x/OpenRSI-Game — independently prepared public benchmark overlay and task implementation; no private company application is required. |
 | Research Question | Exact commit/tag | `9d6a886712014aa218223363a2c3cca30ce68875`, resolved and published; public source version 0.3 fixes 16 actions per case. Matched measurement records are separately pinned at `f65bd75867ac4463d0a0b17ab7717a774e377e0a`. The source archive was frozen before those records were published. |
@@ -35,6 +35,17 @@ maintainer acceptance, independent reproduction or an Agent trajectory.
 | Compute Feasibility | Compute resources per single experiment run | Work: one physical node, 4 CPU cores, 8 GiB RAM, **0 GPUs**; Judge: same single node, 4 CPU cores, 8 GiB RAM, **0 GPUs**; end-to-end peak is the same. Native Chromium, no host Docker socket, privileged nested Docker, sidecars, task-added devices or remote execution. 10 GiB task storage. Local validation imposed these CPU/RAM limits; memory peak was not separately profiled. |
 | Compute Feasibility | Estimated runtime per single experiment run | Planning: up to 30 min Work research/code/development + 15 min Judge (900-second experiment deadline; generated verifier allows 960 seconds including cleanup) + 5 min overhead = 50 min per loop. Final reference Judge took 9.574 wall seconds; actual Agent reasoning, editing and local trials were not measured. Default research budget 24 h, normally extendable to 48 h; plan at least 20 loops in 24 h or 40 in 48 h with margin. Code-only mandatory Work floor is zero, but upper-bound validator projections are not measured Agent cadence. No fewer-than-10-loop Flag. |
 | Compute Feasibility | Early-stopping signals / lower-cost proxy experiments | N/A for high-cost mitigation. Clear failure termination only: invalid artifact/protocol, missing browser/assets, per-case or full-run timeout. The 48-case development workload is the declared local experiment interface; `--limit` is a smoke test, never a complete evaluation score. |
+
+## Public attribution evidence for this revision
+
+The previous automated review reported that its retrieved website content did
+not expose the named creator or GitHub attribution link. Fresh unauthenticated
+HTTPS reads at 15:10 UTC returned both elements on both project pages. The
+linked static contributor document and exact-footer capture at publication
+commit `ed3316b463a477d9a231c1bf41a9a81dac841dc9` make this attribution evidence
+directly readable without relying solely on website footer extraction.
+They are public identity records; the frozen execution source and scientific
+contract remain pinned at `9d6a886712014aa218223363a2c3cca30ce68875`.
 
 ## Public report context and review limitations
 
