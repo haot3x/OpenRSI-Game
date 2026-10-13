@@ -79,17 +79,17 @@ def solve(board,seq,family,tuck,beam=24):
 def raw_board(kind,rng):
  b=[0]*20
  if kind in ('staggered','uneven'):
-  width=rng.choice((5,6,7,8));left=rng.randrange(11-width)
-  h=rng.choice((3,4,5,6))
+  width=rng.choice((7,8,9));left=rng.randrange(11-width)
+  h=rng.choice((4,5,6,7))
   for x in range(10):
-   height=h if not left<=x<left+width else rng.randrange(0,h if kind=='uneven' else 3)
+   height=h if not left<=x<left+width else rng.randrange(0,3)
    for y in range(20-height,20):b[y]|=1<<x
  elif kind=='separated':
   # Isolated floor gaps interspersed with short stacks, still open from above.
-  gaps=set(rng.sample(range(10),rng.choice((4,5,6))))
+  gaps=set(range(rng.randrange(2),10,2))
   for x in range(10):
    if x not in gaps:
-    for y in range(20-rng.choice((1,2,3)),20):b[y]|=1<<x
+    for y in range(20-rng.choice((2,3,4,5,6)),20):b[y]|=1<<x
  else:
   # A roof covers floor holes; its lateral shaft stays open. Natural entry
   # requires descending before a horizontal move for some placements.
@@ -112,9 +112,9 @@ def overhang_board(family, seed):
  maxx = max(x for x,y in cells); maxy = max(y for x,y in cells)
  right = bool(random.Random(seed*103+ord(family)*17).randrange(2))
  target = 9-maxx if right else 0
- entry = target-1 if right else target+1
  floor_gaps = [target+x for x,y in cells if y==maxy]
  roof_col = max(floor_gaps) if right else min(floor_gaps)
+ entry = roof_col-1-maxx if right else roof_col+1-min(x for x,y in cells)
  board = [0]*20
  board[19] = 1023-sum(1<<x for x in floor_gaps)
  board[16] = 1<<roof_col
@@ -123,7 +123,7 @@ def overhang_board(family, seed):
  shift = entry-spawn_x
  path = ['Enter'] + [('ArrowRight' if shift>0 else 'ArrowLeft')]*abs(shift)
  path += ['ArrowDown']*(18-maxy-spawn_y)
- path += ['ArrowRight' if right else 'ArrowLeft', 'Space']
+ path += ['ArrowRight' if target>entry else 'ArrowLeft']*abs(target-entry) + ['Space']
  assert len(path)<=32
  # The same placement made from above must be blocked by the sparse roof.
  assert not any(full for nb,full,step in placements(board,seq[0],family,False))
@@ -136,25 +136,26 @@ def generate(family,seed,kind):
  if kind=='overhang':return overhang_board(family,seed)
  rng=random.Random(seed*103+ord(family)*17)
  seq=sequence(family,seed)
- for attempt in range(160):
+ for attempt in range(400):
   board=raw_board(kind,rng)
   if any(r==1023 for r in board):continue
   # Avoid fixtures that already expose a one-piece clear to the current bag.
   if any(full for nb,full,step in placements(board,seq[0],family,False)):continue
   path=solve(board,seq,family,kind=='overhang',beam=18)
-  if path:
-   return {'family':family,'seed':seed,'structure':kind,'attempt':attempt,'board':[["J" if row>>x&1 else None for x in range(10)] for row in board],'witness':[{'key':key} for key in path],'sequence':seq,'witness_actions':len(path)}
+  minimum_pieces = 3 if kind=='staggered' else 4
+  if path and path.count('Space')>=minimum_pieces:
+   return {'family':family,'seed':seed,'structure':kind,'attempt':attempt,'board':[["J" if row>>x&1 else None for x in range(10)] for row in board],'witness':[{'key':key} for key in path],'sequence':seq,'witness_actions':len(path),'witness_pieces':path.count('Space')}
  raise RuntimeError(f'No reachable fixture for {family}/{seed}/{kind}')
 
 if __name__=='__main__':
  import argparse
  from pathlib import Path
- p=argparse.ArgumentParser();p.add_argument('--output',required=True);p.add_argument('--count',type=int,default=1);p.add_argument('--family',default='ab');a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--output',required=True);p.add_argument('--count',type=int,default=1);p.add_argument('--family',default='ab');p.add_argument('--split',choices=('dev','judge'),default='dev');a=p.parse_args()
  records=[];begin=time.monotonic()
  for family in a.family:
   for k,kind in enumerate(('staggered','separated','overhang','uneven')):
    for i in range(a.count):
-    seed=10+k*2+i
+    seed=(10 if a.split=='dev' else 100)+k*a.count+i
     row=generate(family,seed,kind);records.append(row)
     print(f"{family}/{seed}/{kind}: actions={row['witness_actions']} attempts={row['attempt']} seconds={time.monotonic()-begin:.1f}",flush=True)
- Path(a.output).write_text(json.dumps({'algorithm':'board-only deterministic feasibility search; no policy-control feedback','records':records},indent=2)+'\n')
+ Path(a.output).write_text(json.dumps({'algorithm':'board-only deterministic feasibility search; no policy-control feedback','split':a.split,'records':records},indent=2)+'\n')

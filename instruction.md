@@ -1,4 +1,4 @@
-# Local difficulty pilot: evidence-based game playtesting
+# Spatial-planning game playtesting
 
 Research whether better visual state estimation, placement planning and evidence
 assessment improve functional judgments on fixed AI-generated browser games.
@@ -38,10 +38,11 @@ Unsupported claims get no credit. Absence of observation does not prove failure.
 Scoring after clear excludes drop points. If removal is disabled, score-on-clear
 is ineligible; it has no event on which to assess the conditional behavior.
 
-This local prototype has 48 development cases: two reviewed Codex games ×
-three controlled variants × four board structures × two fixed seeds. There is
-no full Judge workload in this prototype; `--split judge` deliberately fails.
-A later frozen revision may add 96 full cases after difficulty calibration.
+The development workload has 48 cases: two reviewed Codex games × three
+controlled variants × four structures × two fixed seeds. The fixed full
+workload has 96 cases, with four seeds per structure. The structure groups
+are stepped gaps, separated narrow cavities, sparse overhangs and uneven
+stacks. The reference algorithm and evidence metric remain unchanged.
 The primary score is balanced evidence-supported correct-decision rate in [0,1],
 higher is better. See [the contract](docs/evaluation-contract.md) for exact rules.
 
@@ -59,7 +60,7 @@ is allowed. Locally generated development observations within the fixed task
 are allowed. A malformed candidate, crash, timeout, infrastructure failure or
 incomplete evaluation is unscored, rather than a game defect or finite zero.
 
-This local difficulty prototype changes starting-board geometry and gives every
+This spatial-difficulty revision changes starting-board geometry and gives every
 policy the same 32-action budget. The greedy baseline algorithm is unchanged;
 old 16-action/full-Judge results are historical and not matched measurements
 for this new pilot. See [the pilot record](docs/difficulty-pilot.md).

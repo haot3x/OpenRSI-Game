@@ -2,7 +2,7 @@ schema_version = "1.4"
 
 [task]
 name = "rsi/game-playtest-evidence"
-version = "0.4.0-dev-pilot"
+version = "0.4.0"
 description = "Improve a visual game-playtesting policy under fixed browser and evidence budgets."
 
 [metadata]
@@ -29,7 +29,7 @@ gpus = 0
 network_mode = "no-network"
 
 [agent]
-timeout_sec = 86400
+timeout_sec = 28800
 network_mode = "no-network"
 
 [verifier]

@@ -18,9 +18,7 @@ def verify_assets():
 
 
 def cases(split):
-    if split != "dev":
-        raise ValueError("Local prototype: full Judge fixtures not yet authored")
-    seeds = range(10, 18)
+    seeds = range(10, 18) if split == "dev" else range(100, 116)
     result = [(family, variant, seed) for family in ("a", "b")
               for variant in VARIANTS for seed in seeds]
     random.Random(901 if split == "dev" else 902).shuffle(result)
@@ -39,7 +37,7 @@ def starting_board(seed, family):
     payload = json.loads((ROOT / "assets/challenges-pilot.json").read_text())
     matches = [r for r in payload["boards"] if r["family"] == family and r["seed"] == seed]
     if len(matches) != 1:
-        raise ValueError("This local prototype has development fixtures only")
+        raise ValueError("Unknown fixed challenge fixture")
     return matches[0]["board"]
 
 

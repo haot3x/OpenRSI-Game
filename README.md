@@ -3,12 +3,13 @@
 A public CPU-only research task for improving evidence-based playtesting of
 AI-generated browser games. Built for OpenRSI task creation and proposal review.
 
-**Status: local development difficulty pilot.** This isolated revision tests
-four starting-board structures with 32 actions per case. It is not a validated
-Harbor Task revision or an accepted replacement for private task v1.2.0.
-The 48-case development interface works; the full Judge is intentionally
-unavailable until separate evaluation fixtures are authored and validated.
-See [pilot methodology and measured results](docs/difficulty-pilot.md).
+**Status: v0.4 spatial-difficulty revision, local validation in progress.**
+The fixed workload now includes 48 development cases and 96 full cases,
+with four board structures and the same 32-action budget for every policy.
+Local public full-protocol checks scored the unchanged reference at 0.21875,
+the old strong control at 0.5625 and a motion extension at 0.8125.
+These are not Harbor acceptance or a new research-Agent trajectory.
+See [revision details](docs/difficulty-revision-v3.md).
 
 ## Research question
 
@@ -53,12 +54,13 @@ docker run --rm --network none --cpus 4 --memory 8g \
   --output /results/dev.json
 ```
 
-Historical Judge entry point (not usable for this development-only prototype):
+Run the public fixed full evaluation (the private Task has additional scope and process supervision):
 
 ```sh
 docker run --rm --network none --cpus 4 --memory 8g \
   -v "$PWD/tests:/tests:ro" -v "$PWD/runs:/logs/verifier" \
-  openrsi-game:difficulty-pilot bash /tests/test.sh
+  openrsi-game:difficulty-pilot python -B -m gamebench.evaluate \
+  --policy candidate/policy.py --split judge --output /logs/verifier/public-full.json
 ```
 
 ## Materials

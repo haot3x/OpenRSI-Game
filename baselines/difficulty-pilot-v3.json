@@ -1,0 +1,550 @@
+{
+  "scope": "Local public-protocol evaluation, not Harbor acceptance or a real Agent run",
+  "revision": 3,
+  "development": {
+    "witness": {
+      "status": "passed",
+      "cases": 48,
+      "passed_cases": 48,
+      "max_witness_actions": 27,
+      "run_kind": "local_development_difficulty_pilot",
+      "action_budget": 32,
+      "elapsed_seconds": 6.535,
+      "browser_version": "151.0.7922.34",
+      "official_full_run": false,
+      "real_agent_executed": false
+    },
+    "greedy": {
+      "status": "scored",
+      "score": 0.1875,
+      "eligible_judgments": 80,
+      "class_counts": {
+        "passed": 48,
+        "failed": 32
+      },
+      "correct_counts": {
+        "passed": 9,
+        "failed": 6
+      },
+      "abstentions": 65,
+      "unsupported_decisions": 0,
+      "cases": 48,
+      "actions": 1494,
+      "policy_sha256": "4c40a0f2ccc2605493fb37be29f4d807218a4cd64e359a311cf199488ac6a493",
+      "by_structure": {
+        "overhang": {
+          "status": "scored",
+          "score": 0.0,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 0,
+            "failed": 0
+          },
+          "abstentions": 20,
+          "unsupported_decisions": 0
+        },
+        "separated": {
+          "status": "scored",
+          "score": 0.0,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 0,
+            "failed": 0
+          },
+          "abstentions": 20,
+          "unsupported_decisions": 0
+        },
+        "staggered": {
+          "status": "scored",
+          "score": 0.25,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 3,
+            "failed": 2
+          },
+          "abstentions": 15,
+          "unsupported_decisions": 0
+        },
+        "uneven": {
+          "status": "scored",
+          "score": 0.5,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 6,
+            "failed": 4
+          },
+          "abstentions": 10,
+          "unsupported_decisions": 0
+        }
+      },
+      "run_kind": "local_development_difficulty_pilot",
+      "action_budget": 32,
+      "elapsed_seconds": 9.451,
+      "browser_version": "151.0.7922.34",
+      "official_full_run": false,
+      "real_agent_executed": false
+    },
+    "final-perfect-32": {
+      "status": "scored",
+      "score": 0.5,
+      "eligible_judgments": 80,
+      "class_counts": {
+        "passed": 48,
+        "failed": 32
+      },
+      "correct_counts": {
+        "passed": 24,
+        "failed": 16
+      },
+      "abstentions": 40,
+      "unsupported_decisions": 0,
+      "cases": 48,
+      "actions": 1260,
+      "policy_sha256": "85880f2190d46d25ac6f2ecdfed2daf9c312cd4b0f36b60ce4b0f4a5cd2ac4fe",
+      "by_structure": {
+        "overhang": {
+          "status": "scored",
+          "score": 0.25,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 3,
+            "failed": 2
+          },
+          "abstentions": 15,
+          "unsupported_decisions": 0
+        },
+        "separated": {
+          "status": "scored",
+          "score": 0.0,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 0,
+            "failed": 0
+          },
+          "abstentions": 20,
+          "unsupported_decisions": 0
+        },
+        "staggered": {
+          "status": "scored",
+          "score": 1.0,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "abstentions": 0,
+          "unsupported_decisions": 0
+        },
+        "uneven": {
+          "status": "scored",
+          "score": 0.75,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 9,
+            "failed": 6
+          },
+          "abstentions": 5,
+          "unsupported_decisions": 0
+        }
+      },
+      "run_kind": "local_development_difficulty_pilot",
+      "action_budget": 32,
+      "elapsed_seconds": 9.312,
+      "browser_version": "151.0.7922.34",
+      "official_full_run": false,
+      "real_agent_executed": false
+    },
+    "motion-extension": {
+      "status": "scored",
+      "score": 0.6875,
+      "eligible_judgments": 80,
+      "class_counts": {
+        "passed": 48,
+        "failed": 32
+      },
+      "correct_counts": {
+        "passed": 33,
+        "failed": 22
+      },
+      "abstentions": 25,
+      "unsupported_decisions": 0,
+      "cases": 48,
+      "actions": 1161,
+      "policy_sha256": "62b43e77db9c4959896a875535d8f8cfd22835f1e12246ddcdaf506e5749af80",
+      "by_structure": {
+        "overhang": {
+          "status": "scored",
+          "score": 1.0,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "abstentions": 0,
+          "unsupported_decisions": 0
+        },
+        "separated": {
+          "status": "scored",
+          "score": 0.0,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 0,
+            "failed": 0
+          },
+          "abstentions": 20,
+          "unsupported_decisions": 0
+        },
+        "staggered": {
+          "status": "scored",
+          "score": 1.0,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "abstentions": 0,
+          "unsupported_decisions": 0
+        },
+        "uneven": {
+          "status": "scored",
+          "score": 0.75,
+          "eligible_judgments": 20,
+          "class_counts": {
+            "passed": 12,
+            "failed": 8
+          },
+          "correct_counts": {
+            "passed": 9,
+            "failed": 6
+          },
+          "abstentions": 5,
+          "unsupported_decisions": 0
+        }
+      },
+      "run_kind": "local_development_difficulty_pilot",
+      "action_budget": 32,
+      "elapsed_seconds": 9.238,
+      "browser_version": "151.0.7922.34",
+      "official_full_run": false,
+      "real_agent_executed": false
+    }
+  },
+  "full": {
+    "greedy": {
+      "status": "scored",
+      "score": 0.21875,
+      "eligible_judgments": 160,
+      "class_counts": {
+        "passed": 96,
+        "failed": 64
+      },
+      "correct_counts": {
+        "passed": 21,
+        "failed": 14
+      },
+      "abstentions": 125,
+      "unsupported_decisions": 0,
+      "cases": 96,
+      "actions": 2985,
+      "policy_sha256": "4c40a0f2ccc2605493fb37be29f4d807218a4cd64e359a311cf199488ac6a493",
+      "by_structure": {
+        "overhang": {
+          "status": "scored",
+          "score": 0.25,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 6,
+            "failed": 4
+          },
+          "abstentions": 30,
+          "unsupported_decisions": 0
+        },
+        "separated": {
+          "status": "scored",
+          "score": 0.125,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 3,
+            "failed": 2
+          },
+          "abstentions": 35,
+          "unsupported_decisions": 0
+        },
+        "staggered": {
+          "status": "scored",
+          "score": 0.25,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 6,
+            "failed": 4
+          },
+          "abstentions": 30,
+          "unsupported_decisions": 0
+        },
+        "uneven": {
+          "status": "scored",
+          "score": 0.25,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 6,
+            "failed": 4
+          },
+          "abstentions": 30,
+          "unsupported_decisions": 0
+        }
+      },
+      "run_kind": "local_public_full_protocol_check",
+      "action_budget": 32,
+      "elapsed_seconds": 18.313,
+      "browser_version": "151.0.7922.34",
+      "official_full_run": false,
+      "real_agent_executed": false
+    },
+    "final-perfect-32": {
+      "status": "scored",
+      "score": 0.5625,
+      "eligible_judgments": 160,
+      "class_counts": {
+        "passed": 96,
+        "failed": 64
+      },
+      "correct_counts": {
+        "passed": 54,
+        "failed": 36
+      },
+      "abstentions": 70,
+      "unsupported_decisions": 0,
+      "cases": 96,
+      "actions": 2370,
+      "policy_sha256": "85880f2190d46d25ac6f2ecdfed2daf9c312cd4b0f36b60ce4b0f4a5cd2ac4fe",
+      "by_structure": {
+        "overhang": {
+          "status": "scored",
+          "score": 0.0,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 0,
+            "failed": 0
+          },
+          "abstentions": 40,
+          "unsupported_decisions": 0
+        },
+        "separated": {
+          "status": "scored",
+          "score": 0.25,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 6,
+            "failed": 4
+          },
+          "abstentions": 30,
+          "unsupported_decisions": 0
+        },
+        "staggered": {
+          "status": "scored",
+          "score": 1.0,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "abstentions": 0,
+          "unsupported_decisions": 0
+        },
+        "uneven": {
+          "status": "scored",
+          "score": 1.0,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "abstentions": 0,
+          "unsupported_decisions": 0
+        }
+      },
+      "run_kind": "local_public_full_protocol_check",
+      "action_budget": 32,
+      "elapsed_seconds": 18.137,
+      "browser_version": "151.0.7922.34",
+      "official_full_run": false,
+      "real_agent_executed": false
+    },
+    "motion-extension": {
+      "status": "scored",
+      "score": 0.8125,
+      "eligible_judgments": 160,
+      "class_counts": {
+        "passed": 96,
+        "failed": 64
+      },
+      "correct_counts": {
+        "passed": 78,
+        "failed": 52
+      },
+      "abstentions": 30,
+      "unsupported_decisions": 0,
+      "cases": 96,
+      "actions": 2133,
+      "policy_sha256": "62b43e77db9c4959896a875535d8f8cfd22835f1e12246ddcdaf506e5749af80",
+      "by_structure": {
+        "overhang": {
+          "status": "scored",
+          "score": 1.0,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "abstentions": 0,
+          "unsupported_decisions": 0
+        },
+        "separated": {
+          "status": "scored",
+          "score": 0.25,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 6,
+            "failed": 4
+          },
+          "abstentions": 30,
+          "unsupported_decisions": 0
+        },
+        "staggered": {
+          "status": "scored",
+          "score": 1.0,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "abstentions": 0,
+          "unsupported_decisions": 0
+        },
+        "uneven": {
+          "status": "scored",
+          "score": 1.0,
+          "eligible_judgments": 40,
+          "class_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "correct_counts": {
+            "passed": 24,
+            "failed": 16
+          },
+          "abstentions": 0,
+          "unsupported_decisions": 0
+        }
+      },
+      "run_kind": "local_public_full_protocol_check",
+      "action_budget": 32,
+      "elapsed_seconds": 18.179,
+      "browser_version": "151.0.7922.34",
+      "official_full_run": false,
+      "real_agent_executed": false
+    }
+  },
+  "witness_repair": "Asymmetric Z/S entry route fixed; board geometry unchanged. Final full witness result recorded separately.",
+  "formal_agent_executed": false,
+  "full_witness_final": {
+    "status": "passed",
+    "cases": 96,
+    "passed_cases": 96,
+    "max_witness_actions": 26,
+    "run_kind": "local_public_full_protocol_check",
+    "action_budget": 32,
+    "elapsed_seconds": 12.01,
+    "browser_version": "151.0.7922.34",
+    "official_full_run": false,
+    "real_agent_executed": false
+  }
+}

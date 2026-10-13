@@ -1,4 +1,4 @@
-# Local difficulty pilot contract (full Task revision pending)
+# v0.4 fixed spatial-difficulty evaluation contract
 
 ## Research scope
 
@@ -33,10 +33,10 @@ Controls and game logic then run normally, with an explicitly controlled clock.
 This is intervention-based testing, not historical natural gameplay replay.
 
 Development: both games × three variants × seeds 10–17 = **48 cases**.
-Planned later evaluation: both games × three variants × seeds 100–115 =
-**96 cases**. It has not been authored or validated in this local pilot;
-`--split judge` deliberately fails rather than returning an old-workload score.
-The planned full workload would have 160 eligible requirement judgments: 96 passing
+Evaluation: both games × three variants × seeds 100–115 = **96 cases**.
+Four consecutive seeds cover each structure group; development uses two.
+Both sets are frozen before control evaluation.
+The full workload has 160 eligible requirement judgments: 96 passing
 and 64 failing. Score-on-clear is excluded only for row-removal-disabled cases.
 Both sets have a fixed shuffled order. Every case gets a fresh browser context
 and candidate process, so state and browser storage do not carry between cases.
@@ -112,8 +112,9 @@ A missing/oversized policy, malformed report/action, invalid frame, process
 crash, attributable Python failure, deadline or incomplete evaluation is
 **unscored** with `score: null`. Infrastructure failures are measurement-unavailable,
 also unscored. Neither is a game defect. A complete, valid but inaccurate or
-unsupported report can receive a finite zero. The historical `tests/test.sh` full-Judge path is unavailable for this
-development-only revision. No formal reward or full-Judge result is claimed.
+unsupported report can receive a finite zero. The public full evaluation emits a complete measurement. The private Task
+adds scope validation, async deadlines and sole reward publication; its
+acceptance and Agent trajectory are separate from these public measurements.
 
 Feedback: aggregate score, class/correct counts, eligible/abstention/unsupported
 counts, total actions/time, policy digest, browser version and status. No
