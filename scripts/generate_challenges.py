@@ -59,7 +59,7 @@ def quality(board):
  heights=[20-next((y for y in range(20) if board[y]>>x&1),20) for x in range(10)]
  holes=sum(sum(not board[y]>>x&1 for y in range(20-heights[x],20)) for x in range(10))
  # Authoring search prioritizes progressing near-complete rows and few holes.
- near=sum((row.bit_count()/10)**8 for row in board)
+ near=sum((bin(row).count("1")/10)**8 for row in board)
  return near*12-holes*2-sum(heights)*.22-sum(abs(a-b) for a,b in zip(heights,heights[1:]))*.5
 
 def solve(board,seq,family,tuck,beam=24):
