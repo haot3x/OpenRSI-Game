@@ -14,7 +14,7 @@ from .browser import Game
 from .fixtures import cases, labels, verify_assets
 from .scoring import aggregate, decisions, validate_report
 
-ACTION_BUDGET = 16
+ACTION_BUDGET = 32
 
 
 class CandidateError(Exception):

@@ -1,4 +1,4 @@
-# v0.1 fixed evaluation contract
+# Local difficulty pilot contract (full Task revision pending)
 
 ## Research scope
 
@@ -24,14 +24,19 @@ no runnable Claude Code game in v0.1.
 row removal disabled, and clear reward disabled. These defects are task-authored,
 not claims of defects in the original generated games. The verifier checks the
 frozen asset digests, requires exactly one occurrence of each adaptation anchor,
-and instruments lock events. Initial boards have 2–5 nearly filled bottom rows
-with a seeded contiguous gap of width 1–8; bag shuffling uses a fixed PRNG.
+and instruments lock events. Initial boards use four deterministic geometry families: stepped gaps,
+separated floor gaps, reachable overhangs and uneven stacks. A feasibility-only
+authoring search rejects initial full rows and immediate one-piece clears,
+then finds a legal path within 32 actions. Board selection never uses any
+control-policy score. Bag shuffling uses the original fixed PRNG.
 Controls and game logic then run normally, with an explicitly controlled clock.
 This is intervention-based testing, not historical natural gameplay replay.
 
 Development: both games × three variants × seeds 10–17 = **48 cases**.
-Evaluation: both games × three variants × seeds 100–115 = **96 cases**.
-There are 160 eligible requirement judgments in full evaluation: 96 passing
+Planned later evaluation: both games × three variants × seeds 100–115 =
+**96 cases**. It has not been authored or validated in this local pilot;
+`--split judge` deliberately fails rather than returning an old-workload score.
+The planned full workload would have 160 eligible requirement judgments: 96 passing
 and 64 failing. Score-on-clear is excluded only for row-removal-disabled cases.
 Both sets have a fixed shuffled order. Every case gets a fresh browser context
 and candidate process, so state and browser storage do not carry between cases.
@@ -61,7 +66,7 @@ or paid model calls are permitted. No candidate model inference is required.
 
 ## Budget and lifecycle
 
-Each case permits 16 actions and 30 wall seconds. A key press advances 32
+Each case permits 32 actions and 30 wall seconds. A key press advances 32
 simulated ms; a wait is 16–2000 simulated ms. The clock advances rAF callbacks
 in steps ≤16 ms; it is fixed by the evaluator, not candidate-controlled beyond
 bounded waiting. Allowed keys are Enter, ArrowLeft/Right/Down/Up and Space.
@@ -107,8 +112,8 @@ A missing/oversized policy, malformed report/action, invalid frame, process
 crash, attributable Python failure, deadline or incomplete evaluation is
 **unscored** with `score: null`. Infrastructure failures are measurement-unavailable,
 also unscored. Neither is a game defect. A complete, valid but inaccurate or
-unsupported report can receive a finite zero. `tests/test.sh` emits a reward
-only after a complete, valid 96-case measurement.
+unsupported report can receive a finite zero. The historical `tests/test.sh` full-Judge path is unavailable for this
+development-only revision. No formal reward or full-Judge result is claimed.
 
 Feedback: aggregate score, class/correct counts, eligible/abstention/unsupported
 counts, total actions/time, policy digest, browser version and status. No

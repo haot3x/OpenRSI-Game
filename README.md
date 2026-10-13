@@ -3,8 +3,12 @@
 A public CPU-only research task for improving evidence-based playtesting of
 AI-generated browser games. Built for OpenRSI task creation and proposal review.
 
-**Status: v0.3 review prototype with a fixed 16-action budget; revised full
-validation and proposal acceptance are not claimed at this source revision.**
+**Status: local development difficulty pilot.** This isolated revision tests
+four starting-board structures with 32 actions per case. It is not a validated
+Harbor Task revision or an accepted replacement for private task v1.2.0.
+The 48-case development interface works; the full Judge is intentionally
+unavailable until separate evaluation fixtures are authored and validated.
+See [pilot methodology and measured results](docs/difficulty-pilot.md).
 
 ## Research question
 
@@ -29,10 +33,10 @@ call is required. Build downloads pinned public dependencies; runtime is offline
 
 ```sh
 python3 scripts/package_environment.py
-docker build -t openrsi-game:0.3 environment/
+docker build -t openrsi-game:difficulty-pilot environment/
 mkdir -p runs
 docker run --rm --network none --cpus 4 --memory 8g \
-  -v "$PWD/runs:/results" openrsi-game:0.3 \
+  -v "$PWD/runs:/results" openrsi-game:difficulty-pilot \
   python -m gamebench.evaluate --policy candidate/policy.py --split dev \
   --output /results/dev.json
 ```
@@ -44,17 +48,17 @@ then mount only that candidate directory into the container:
 ```sh
 docker run --rm --network none --cpus 4 --memory 8g \
   -v "$PWD/candidate:/workspace/openrsi-game/candidate:ro" \
-  -v "$PWD/runs:/results" openrsi-game:0.3 \
+  -v "$PWD/runs:/results" openrsi-game:difficulty-pilot \
   python -m gamebench.evaluate --policy candidate/policy.py --split dev \
   --output /results/dev.json
 ```
 
-Run the exact Judge entry point with injected tests:
+Historical Judge entry point (not usable for this development-only prototype):
 
 ```sh
 docker run --rm --network none --cpus 4 --memory 8g \
   -v "$PWD/tests:/tests:ro" -v "$PWD/runs:/logs/verifier" \
-  openrsi-game:0.3 bash /tests/test.sh
+  openrsi-game:difficulty-pilot bash /tests/test.sh
 ```
 
 ## Materials

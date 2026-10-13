@@ -18,7 +18,9 @@ def verify_assets():
 
 
 def cases(split):
-    seeds = range(10, 18) if split == "dev" else range(100, 116)
+    if split != "dev":
+        raise ValueError("Local prototype: full Judge fixtures not yet authored")
+    seeds = range(10, 18)
     result = [(family, variant, seed) for family in ("a", "b")
               for variant in VARIANTS for seed in seeds]
     random.Random(901 if split == "dev" else 902).shuffle(result)
@@ -32,19 +34,13 @@ def labels(variant):
             ("failed" if variant == "no_reward" else "passed")}
 
 
-def starting_board(seed):
-    rng = random.Random(seed)
-    # Cover narrow wells that require rotation and wide gaps requiring planning.
-    # Eight development seeds expose every width; Judge has two seeds per width.
-    width = 1 + seed % 8
-    gap = rng.randrange(11 - width)
-    depth = rng.randint(2, 5)
-    board = [[None] * 10 for _ in range(20)]
-    for y in range(20 - depth, 20):
-        for x in range(10):
-            if not gap <= x < gap + width:
-                board[y][x] = "J"
-    return board
+def starting_board(seed, family):
+    # Local feasibility pilot: board geometry is fixed before policy controls.
+    payload = json.loads((ROOT / "assets/challenges-pilot.json").read_text())
+    matches = [r for r in payload["boards"] if r["family"] == family and r["seed"] == seed]
+    if len(matches) != 1:
+        raise ValueError("This local prototype has development fixtures only")
+    return matches[0]["board"]
 
 
 def replace_once(source, old, new):
@@ -108,7 +104,7 @@ lock=function(){{
 }};
 """
     js = replace_once(js, tail, hook + tail)
-    setup = {"board": [[None] * 10 for _ in range(20)] if probe else starting_board(seed),
+    setup = {"board": [[None] * 10 for _ in range(20)] if probe else starting_board(seed, family),
              "seed": seed, "sequence": ["I", "J", "L"] if probe else []}
     bootstrap = """
 window.__events=[];

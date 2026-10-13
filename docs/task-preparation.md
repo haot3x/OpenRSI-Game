@@ -7,8 +7,9 @@
 - Public assets: four approved game-only files and file digests in `assets/`.
 - Baseline: human-authored greedy non-rotating policy in `reference/policy.py`;
   Solution materializes it by copying, without training or evaluation.
-- Scoring: [fixed v0.3 contract](evaluation-contract.md), 48 development cases,
-  96 full evaluation cases, two behavioral requirements, 16 actions per case.
+- Scoring: [local difficulty pilot contract](evaluation-contract.md), 48 development cases,
+  96 full evaluation cases planned but not yet authored, two behavioral
+  requirements, 32 actions per development case.
 - Harness package: schema 1.4 task, ordinary Docker environment, shared
   Work/Judge, zero GPUs and Judge-only injected tests. The deterministic source
   archive supports the standard environment-only Docker build context.
