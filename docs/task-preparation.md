@@ -9,7 +9,7 @@
   Solution materializes it by copying, without training or evaluation.
 - Scoring: [local difficulty pilot contract](evaluation-contract.md), 48 development cases,
   96 full evaluation cases, two behavioral requirements, 32 actions per case.
-  The v0.4 local public measurements do not establish private Task acceptance.
+  The v0.5 revision uses spawn-safe piles and new seeds; earlier v0.4 measurements do not establish acceptance of this workload.
 - Harness package: schema 1.4 task, ordinary Docker environment, shared
   Work/Judge, zero GPUs and Judge-only injected tests. The deterministic source
   archive supports the standard environment-only Docker build context.

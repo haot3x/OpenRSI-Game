@@ -1,4 +1,4 @@
-# v0.4 fixed spatial-difficulty evaluation contract
+# v0.5 fixed spawn-safe difficulty evaluation contract
 
 ## Research scope
 
@@ -24,18 +24,11 @@ no runnable Claude Code game in v0.1.
 row removal disabled, and clear reward disabled. These defects are task-authored,
 not claims of defects in the original generated games. The verifier checks the
 frozen asset digests, requires exactly one occurrence of each adaptation anchor,
-and instruments lock events. Initial boards use four deterministic geometry families: stepped gaps,
-separated floor gaps, reachable overhangs and uneven stacks. A feasibility-only
-authoring search rejects initial full rows and immediate one-piece clears,
-then finds a legal path within 32 actions. Board selection never uses any
-control-policy score. Bag shuffling uses the original fixed PRNG.
-Controls and game logic then run normally, with an explicitly controlled clock.
-This is intervention-based testing, not historical natural gameplay replay.
+and instruments lock events. Initial boards use spawn-safe legal piles entirely in rows 6–19. A deterministic feasibility search selects the first ascending attempt with a found route of at least five pieces and no more than 32 actions; this is not a shortest-route proof. Selection never uses policy scores. Natural bag shuffling, actual game mechanics and the controlled clock remain unchanged.
 
-Development: both games × three variants × seeds 10–17 = **48 cases**.
-Evaluation: both games × three variants × seeds 100–115 = **96 cases**.
-Four consecutive seeds cover each structure group; development uses two.
-Both sets are frozen before control evaluation.
+Development: both games × three variants × seeds 5000–5007 = **48 cases**.
+Evaluation: both games × three variants × seeds 6000–6015 = **96 cases**.
+Both ranges were declared and all boards frozen before control evaluation.
 The full workload has 160 eligible requirement judgments: 96 passing
 and 64 failing. Score-on-clear is excluded only for row-removal-disabled cases.
 Both sets have a fixed shuffled order. Every case gets a fresh browser context

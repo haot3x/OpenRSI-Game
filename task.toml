@@ -2,7 +2,7 @@ schema_version = "1.4"
 
 [task]
 name = "rsi/game-playtest-evidence"
-version = "0.4.0"
+version = "0.5.0"
 description = "Improve a visual game-playtesting policy under fixed browser and evidence budgets."
 
 [metadata]

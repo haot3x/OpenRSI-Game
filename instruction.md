@@ -38,11 +38,7 @@ Unsupported claims get no credit. Absence of observation does not prove failure.
 Scoring after clear excludes drop points. If removal is disabled, score-on-clear
 is ineligible; it has no event on which to assess the conditional behavior.
 
-The development workload has 48 cases: two reviewed Codex games × three
-controlled variants × four structures × two fixed seeds. The fixed full
-workload has 96 cases, with four seeds per structure. The structure groups
-are stepped gaps, separated narrow cavities, sparse overhangs and uneven
-stacks. The reference algorithm and evidence metric remain unchanged.
+The development workload has 48 cases: two reviewed Codex games × three controlled variants × seeds 5000–5007. The fixed full workload has 96 cases, using seeds 6000–6015. Starting boards are spawn-safe legal piles entirely in rows 6–19. The reference algorithm and evidence metric remain unchanged.
 The primary score is balanced evidence-supported correct-decision rate in [0,1],
 higher is better. See [the contract](docs/evaluation-contract.md) for exact rules.
 
@@ -70,3 +66,5 @@ exposed for audit, so no secret or contamination-free holdout is claimed.
 Solvability witnesses are authoring checks outside the candidate protocol,
 not scoring authority or a reusable observation-only candidate. No formal
 research Agent, Harness trajectory or maintainer acceptance is claimed here.
+
+The v0.5 fixed development seeds are 5000–5007 and full seeds 6000–6015. Witnesses and future sequences are not candidate inputs. See docs/difficulty-revision-v4.md; older scores concern older protocols.

@@ -3,13 +3,8 @@
 A public CPU-only research task for improving evidence-based playtesting of
 AI-generated browser games. Built for OpenRSI task creation and proposal review.
 
-**Status: v0.4 spatial-difficulty revision, local validation in progress.**
-The fixed workload now includes 48 development cases and 96 full cases,
-with four board structures and the same 32-action budget for every policy.
-Local public full-protocol checks scored the unchanged reference at 0.21875,
-the old strong control at 0.5625 and a motion extension at 0.8125.
-These are not Harbor acceptance or a new research-Agent trajectory.
-See [revision details](docs/difficulty-revision-v3.md).
+**Status: v0.5 spawn-safe difficulty revision, acceptance pending.**
+Development has 48 cases; full evaluation has 96 cases / 160 judgments. The new seed ranges were fixed before control scoring. Measurements from v0.4 belong to that older workload. See [revision details](docs/difficulty-revision-v4.md).
 
 ## Research question
 

@@ -18,7 +18,7 @@ def verify_assets():
 
 
 def cases(split):
-    seeds = range(10, 18) if split == "dev" else range(100, 116)
+    seeds = range(5000, 5008) if split == "dev" else range(6000, 6016)
     result = [(family, variant, seed) for family in ("a", "b")
               for variant in VARIANTS for seed in seeds]
     random.Random(901 if split == "dev" else 902).shuffle(result)

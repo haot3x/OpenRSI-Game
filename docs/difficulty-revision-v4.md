@@ -1,0 +1,7 @@
+# Spawn-safe difficulty revision (public v0.5 / Task v1.4)
+
+The contributor requested a fresh eight-hour Codex experiment after a two-hour difficulty-authoring session. The design is spawn-safe legal piles: occupied starting cells lie only in rows 6–19, below active-piece sampling. Both games, natural seeded seven-bags, three interventions, observations, evidence requirements, baseline algorithm, balanced metric and 32-action/30-second limits remain fixed.
+
+New seed ranges were declared before any control score: development 5000–5007, Judge 6000–6015, on both implementations. Deterministic selection takes the first ascending attempt with a constructive beam-search witness using at least five pieces and at most 32 actions; it never consults policy scores. Witness depth is an upper-bound construction, not a minimum proof. Complete generator attempts and browser witness validation are kept outside Work in the private validation record. Work receives board data only, without witness or future sequence. Public fixtures are auditable and exposed, not a secret holdout.
+
+Earlier v1.3 saturated from formal submission one. In exposed authoring calibration the prior strongest policy scored 0.5625 on a different 48-case batch; that is not a measurement on this new workload. Final acceptance measurements are recorded separately, with no invented score or inclusion claim. Previous tasks and experiments remain in Git history. A fresh Agent starts from the unchanged greedy reference, with no previous controller or agent memory injected.
