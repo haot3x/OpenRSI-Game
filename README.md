@@ -1,3 +1,5 @@
+> Experimental tower-defense replacement: see [tower-defense/](tower-defense/). It is a separate research candidate pending maintainer scope review. Earlier Tetris material below remains historical and unchanged on its original branch.
+
 # OpenRSI-Game
 
 A public CPU-only research task for improving evidence-based playtesting of
