@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eff1e9">
+  <title>Mosswatch · Mosswatch</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-defs" aria-hidden="true"><defs>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M19 4C9 3 3 7 5 15c2 8 15 4 14-11Z"/><path d="m6 19 9-10M9 15l-1-4m4 1 4 1"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20 5c-3-3-7-1-8 2-1-3-5-5-8-2-4 4 0 10 8 15 8-5 12-11 8-15Z"/></symbol>
+    <symbol id="i-coin" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="8" ry="9"/><path d="M12 7v10m3-8c-5-3-8 2-3 3s2 6-3 3"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V3m0 1c4-4 9 4 14 0v10c-5 4-10-4-14 0"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 9a8 8 0 1 1 0 6M4 3v6h6"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5Zm4 4c3 2 3 6 0 8m3-11c5 4 5 10 0 14"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5Zm5 5 6 6m0-6-6 6"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8a3 3 0 0 1 6 1c0 2-3 2-3 5m0 3h.01"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="m6 10 6-6 6 6M12 4v16m-6-4 6-6 6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3Z"/></symbol>
+  </defs></svg>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Mosswatch home">
+        <span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="m24 3 19 11v22L24 47 5 36V14Z" fill="#dce8d3"/><path d="m24 9 11 7-11 7-11-7Z" fill="#466f4b"/><path d="M16 20v13l8 5 8-5V20l-8 5Z" fill="#6e9164"/><path d="M21 37V27l6-3v11" fill="#dce8d3"/><path d="m17 15 7-9 7 9-7 5Z" fill="#264f3b"/></svg></span>
+        <span><strong>Mosswatch<span class="brand-dot">.</span></strong><small>MOSSWATCH</small></span>
+      </a>
+      <div class="header-caption"><span class="tiny-dot"></span> A little defense for a living forest</div>
+      <button class="help-button" id="helpButton"><svg class="icon"><use href="#i-help"/></svg> How to play</button>
+    </header>
+
+    <main>
+      <div class="overview">
+        <div><span class="eyebrow">THE VERDANT PASS</span><h1>Protect the forest's last light<span class="title-leaf">✦</span></h1></div>
+        <div class="stats" aria-label="Game status">
+          <div class="stat"><span class="stat-icon heart"><svg class="icon"><use href="#i-heart"/></svg></span><div><small>Base health</small><strong><span id="healthValue">20</span><span class="stat-total"> / 20</span></strong></div></div>
+          <div class="stat"><span class="stat-icon coin"><svg class="icon"><use href="#i-coin"/></svg></span><div><small>Gold</small><strong id="goldValue">180</strong></div></div>
+          <div class="stat"><span class="stat-icon wave"><svg class="icon"><use href="#i-flag"/></svg></span><div><small>Wave</small><strong><span id="waveValue">0</span><span class="stat-total"> / 3</span></strong></div></div>
+        </div>
+      </div>
+
+      <div class="game-layout">
+        <section class="battlefield" aria-label="Forest defense map">
+          <div class="map-header"><div class="map-title"><span class="level-badge">01</span><div><strong>The woodland pass</strong><small>Forest frontier · Winding woods</small></div></div><span class="phase-badge" id="phaseBadge"><i></i> Prepare defenses</span></div>
+          <canvas id="gameCanvas" width="1240" height="850" aria-label="Isometric forest map. Click a green plus to build; click a tower to upgrade."></canvas>
+          <div class="map-toast" id="toast" role="status"></div>
+          <div class="map-legend"><span><i class="legend-pad">+</i> Build site</span><span><i class="legend-path"></i> Enemy path</span></div>
+          <div class="map-bottom">
+            <div class="map-tip"><span class="tip-spark">✦</span><div><strong id="mapTipTitle">Your forest. Your watch.</strong><small id="mapTipText">Choose a tower, then click a + on the map.</small></div></div>
+            <div class="map-tools"><button class="tool-button" id="soundButton" title="Enable sound" aria-label="Enable sound"><svg class="icon"><use href="#i-mute"/></svg></button><button class="tool-button speed-button" id="speedButton" title="Change game speed" aria-label="Change game speed">1×</button><button class="tool-button" id="pauseButton" title="Pause" aria-label="Pause" disabled><svg class="icon"><use href="#i-pause"/></svg></button></div>
+          </div>
+          <div class="end-overlay" id="endOverlay" hidden><div class="end-card"><div class="end-emblem" id="endEmblem">✦</div><span class="eyebrow" id="endEyebrow">FOREST PROTECTED</span><h2 id="endTitle">The forest still shines</h2><p id="endDescription"></p><button class="primary-button" id="endRestart"><svg class="icon"><use href="#i-reset"/></svg> Play again</button></div></div>
+        </section>
+
+        <aside class="control-panel">
+          <div class="panel-heading"><div><span class="eyebrow">BUILD YOUR DEFENSE</span><h2>Build your defense</h2></div><span class="panel-leaf"><svg class="icon"><use href="#i-leaf"/></svg></span></div>
+          <div id="buildPanel">
+            <div class="tower-list">
+              <button class="tower-card selected" data-tower="arrow" aria-pressed="true"><div class="tower-art arrow-art"><svg viewBox="0 0 110 115" aria-hidden="true"><ellipse cx="55" cy="101" rx="34" ry="9" fill="#b6c6a9" opacity=".5"/><path d="m31 87 24-13 25 13v12l-25 13-24-13Z" fill="#9fa481"/><path d="m31 87 24 13 25-13-25-13Z" fill="#e2d8b5"/><path d="M39 85V44l17 9 17-9v41L56 95Z" fill="#cec39a"/><path d="M56 53v42l17-10V44Z" fill="#a99c72"/><path d="m34 41 22-13 23 13v12L56 66 34 53Z" fill="#ded4b2"/><path d="m34 41 22 13 23-13-23-13Z" fill="#f0e7cb"/><path d="m32 33 24-25 25 25-25 14Z" fill="#588775"/><path d="m56 8 25 25-25 14Z" fill="#366953"/><path d="M42 35v-8m28 8v-8" stroke="#426f59" stroke-width="5"/><path d="M54 73v13" stroke="#726f50" stroke-width="5"/><path d="M49 38c8-8 16-1 12 7m-12-7 12 7m-10-1 17-10m-2-1 2 1-1 3" fill="none" stroke="#8b613c" stroke-width="2.8"/><path d="M56 9V2" stroke="#98753d" stroke-width="2"/><circle cx="56" cy="3" r="3" fill="#d4ae59"/></svg></div><div class="tower-info"><div class="tower-name">Arrow tower <span class="selected-tick"><svg class="icon"><use href="#i-check"/></svg></span></div><p>Swift, precise and reliable</p><div class="tower-tags"><span>Single target</span><span>Fast</span></div></div><div class="tower-price"><svg class="icon"><use href="#i-coin"/></svg>60</div></button>
+              <button class="tower-card" data-tower="magic" aria-pressed="false"><div class="tower-art magic-art"><svg viewBox="0 0 110 115" aria-hidden="true"><ellipse cx="55" cy="101" rx="34" ry="9" fill="#c5beda" opacity=".5"/><path d="m31 88 24-13 25 13v11l-25 13-24-13Z" fill="#8d85a7"/><path d="m31 88 24 13 25-13-25-13Z" fill="#d5cde5"/><path d="m41 53 14 8 16-8v34l-16 9-14-9Z" fill="#b6a5ce"/><path d="M55 61v35l16-9V53Z" fill="#89779f"/><path d="m34 50 21-12 23 12v11L55 73 34 61Z" fill="#c9bfd7"/><path d="m34 50 21 12 23-12-23-12Z" fill="#e6dded"/><path d="m55 9-12 22 12 22 13-22Z" fill="#afa0df"/><path d="m55 9 13 22-13 22Z" fill="#7b64ac"/><path d="m55 9-12 22h12Z" fill="#e5dafa"/><ellipse cx="56" cy="41" rx="21" ry="7" fill="none" stroke="#c8a166" stroke-width="3" transform="rotate(-18 56 41)"/><path d="M53 78v8" stroke="#eee0fa" stroke-width="4"/><path d="m79 13 2 5 5 2-5 2-2 5-2-5-5-2 5-2Z" fill="#b5a3d1"/><circle cx="35" cy="25" r="2" fill="#bcafd7"/></svg></div><div class="tower-info"><div class="tower-name">Starlight tower <span class="selected-tick"><svg class="icon"><use href="#i-check"/></svg></span></div><p>Starlight scatters the horde</p><div class="tower-tags"><span>Area</span><span>Heavy damage</span></div></div><div class="tower-price"><svg class="icon"><use href="#i-coin"/></svg>90</div></button>
+            </div>
+            <div class="selection-note"><span class="small-plus">+</span><p>Selected: <strong id="selectedTypeName">Arrow tower</strong><br><span id="selectionHint">Click a build site. Cost: 60 gold</span></p></div>
+          </div>
+          <div id="upgradePanel" hidden>
+            <div class="upgrade-head"><div><span class="tower-level" id="selectedLevel">Level 1</span><h3 id="upgradeName">Arrow tower</h3></div><button id="closeUpgrade" class="tool-button" title="Back to building" aria-label="Back to building"><svg class="icon"><use href="#i-close"/></svg></button></div>
+            <p class="upgrade-description" id="upgradeDescription"></p>
+            <div class="attribute-grid"><div><small>Damage</small><strong id="attackValue"></strong></div><div><small>Range</small><strong id="rangeValue"></strong></div><div><small>Fire interval</small><strong id="rateValue"></strong></div></div>
+            <div class="upgrade-preview" id="upgradePreview"></div>
+            <button class="upgrade-button" id="upgradeButton"><svg class="icon"><use href="#i-up"/></svg><span>Upgrade tower</span><span id="upgradeCost"></span></button>
+            <p class="max-level-message" id="maxLevelMessage" hidden>✦ Maximum level reached</p>
+            <button class="back-build" id="backBuild">Build another tower <svg class="icon"><use href="#i-arrow"/></svg></button>
+          </div>
+
+          <div class="wave-section"><div class="section-label"><h3>Incoming waves</h3><span id="waveStatus">3 waves</span></div><div class="wave-track" id="waveTrack"><div class="wave-step current"><span>1</span><small>First contact</small></div><i></i><div class="wave-step"><span>2</span><small>Shadows approach</small></div><i></i><div class="wave-step"><span>3</span><small>The last stand</small></div></div><div class="wave-info"><svg class="icon"><use href="#i-flag"/></svg><span id="waveInfo">Wave 1  · 8  enemies</span><span id="enemyCount">Ready</span></div></div>
+          <div class="panel-actions"><button class="primary-button" id="startWave"><svg class="icon"><use href="#i-play"/></svg><span>Start wave  1 </span><svg class="icon button-arrow"><use href="#i-arrow"/></svg></button><button class="restart-button" id="restartButton"><svg class="icon"><use href="#i-reset"/></svg> Restart</button></div>
+          <div class="panel-footnote"><span class="tiny-dot"></span> Survive three waves. Become the forest's hero.</div>
+        </aside>
+      </div>
+
+      <section class="quick-guide" aria-label="Controls"><div><span class="guide-number">01</span><p><strong>Place your first tower</strong><span>Select a tower and click a green build site</span></p><span class="guide-decoration">＋</span></div><div><span class="guide-number">02</span><p><strong>Strengthen the line</strong><span>Earn gold from enemies. Click towers to upgrade.</span></p><svg class="icon guide-decoration"><use href="#i-up"/></svg></div><div><span class="guide-number">03</span><p><strong>Protect the forest heart</strong><span>Survive all three waves and keep the base alive</span></p><svg class="icon guide-decoration"><use href="#i-heart"/></svg></div></section>
+    </main>
+    <footer><span>A little strategy. A little peace.</span><span>MADE FOR LITTLE MOMENTS <span class="footer-star">✦</span></span></footer>
+  </div>
+
+  <dialog id="helpDialog"><button class="dialog-close tool-button" id="closeHelp" aria-label="Close guide"><svg class="icon"><use href="#i-close"/></svg></button><span class="eyebrow">A LITTLE FIELD GUIDE</span><h2>Welcome to Mosswatch</h2><p>You are the forest's last guard. Monsters follow the sandy path toward your castle.</p><ol><li><strong>Build</strong>: Pick an Arrow tower (60 gold) or Starlight tower (90 gold), then click a green +. Arrows strike one target; starlight deals splash damage.</li><li><strong>Upgrade</strong>: Click a tower to see its range and upgrade cost. Towers have three levels with increasing damage and range.</li><li><strong>Defend</strong>: Start each wave when ready. Defeated enemies give gold; enemies reaching the base cost health. Survive three waves to win.</li></ol><p class="help-tip">You can build and upgrade during battle. Use the map controls to change speed or pause, and restart anytime.</p><button class="primary-button" id="helpDone">Ready to defend <svg class="icon"><use href="#i-arrow"/></svg></button></dialog>
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "status": "research prototype, not accepted Task",
+  "base_game_url": "https://aigamebench.com/play/tiny-tower-defense",
+  "public_asset_base": "https://aigamebench.com/games/diversity-v1/tiny-tower-defense/",
+  "publicly_displayed_creation_provenance": "Codex \u00b7 GPT-6.1 Sol \u00b7 High effort",
+  "retrieved_at": "2026-10-15T05:06:56.708471+00:00",
+  "scope": "public game-only assets; no internal repository code, reports, accounts or operator conversations",
+  "files": {
+    "game.js": "e03a2963a48e04e578b90bab12eb31fb480937b07ade6fbdc3880c147f003232",
+    "index.html": "01828ed5e581334cb5a740f396c6f4c78ff153522ecd87729e066a309315fee3",
+    "style.css": "89f53f3b33cdb2d01df9d624005bd8abdd14b1031ad9ebf2fb8a1b3e5b5266f2"
+  }
+}

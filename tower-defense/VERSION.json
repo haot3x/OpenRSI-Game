@@ -1,0 +1,6 @@
+{
+  "task_version": "2.0.1",
+  "core_evaluator_sha256": "74b5fb56bcc4914233541e0afa51916f408211d61e8e6c85ba41f3680026d984",
+  "source_task_tree": "46f782830bea2ba1d1a88644f243ece0cbd6eefc",
+  "acceptance": "pending maintainer scope and independent reproduction review"
+}

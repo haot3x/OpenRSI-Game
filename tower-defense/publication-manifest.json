@@ -1,0 +1,17 @@
+{
+  "Dockerfile": "f34f1a262da8551f87cfbdac8cd5d5ebf6273df8d2facd56bb8c4d6c72ce72bf",
+  "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "NOTICE": "8196eb1c3311b2c3bc2818a3c42bfd258648035dbc76c1ac6eac3eec10540c6c",
+  "README.md": "c5878465fb88fe5de592554304368f3b21a0c71bbbf0f70ae170cff8baa20392",
+  "assets/game.js": "e03a2963a48e04e578b90bab12eb31fb480937b07ade6fbdc3880c147f003232",
+  "assets/index.html": "01828ed5e581334cb5a740f396c6f4c78ff153522ecd87729e066a309315fee3",
+  "assets/style.css": "89f53f3b33cdb2d01df9d624005bd8abdd14b1031ad9ebf2fb8a1b3e5b5266f2",
+  "candidate/policy.py": "63ad752f8a14402f0e448e71fee73c0f2575bdd743228877f185cf9dfd374fdd",
+  "development-cases.json": "0c552f1f02cb590db97d5b8b936b0564e403796d31d4861323d91d867a705b3d",
+  "instruction.md": "622db5df0606de712ad002246570f2f1479b4a19dc7a8fe7c797724e2d90f1fd",
+  "reference/policy.py": "63ad752f8a14402f0e448e71fee73c0f2575bdd743228877f185cf9dfd374fdd",
+  "requirements.txt": "528d6b4ffe9693f6206bdf7648d656c781c13abc34f9297e26336c0696ef0c3d",
+  "source.json": "49139581a33489ca2626c5624eb5caeef5c51b4fc107445a8f3b9ded5ac83e17",
+  "towerbench.py": "74b5fb56bcc4914233541e0afa51916f408211d61e8e6c85ba41f3680026d984",
+  "VERSION.json": "ec6d4e480ae4a2eebd8058447cb49bfd99c4bc9b0a171d171ffeb063ff35e17f"
+}
